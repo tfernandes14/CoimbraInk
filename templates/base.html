@@ -1,13 +1,126 @@
 {% load static %}
 <!DOCTYPE html>
-    <html lang="en">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
-<head>
-    <meta charset="UTF-8">
-    <title>Base !</title>
-</head>
-<body>
-    <div class="bg"></div>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Base</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    </head>
 
-</body>
+    <body>
+        <!--Navbar-->
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+
+            <!-- Navbar brand -->
+            <a class="navbar-brand" href="#">CoimbraInk</a>
+
+            <!-- Collapse button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav" aria-expanded="true" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Collapsible content -->
+            <div class="navbar-collapse collapse show" id="basicExampleNav">
+
+                <!-- Links -->
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link fss-nav-item waves-effect waves-light active" href="#view-1">View 1</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link fss-nav-item waves-effect waves-light active" href="#view-2">View 2</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link fss-nav-item waves-effect waves-light active" href="#view-3">View 3</a>
+                    </li>
+
+                    <!-- Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Subviews</a>
+                        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item fss-nav-item" href="#subview-a">Subview A</a>
+                            <a class="dropdown-item fss-nav-item" href="#subview-b">Subview B</a>
+                        </div>
+                    </li>
+
+                </ul>
+                <!-- Links -->
+
+                <form class="form-inline">
+                  <div class="md-form my-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                  </div>
+                </form>
+            </div>
+            <!-- Collapsible content -->
+
+        </nav>
+        <!--/.Navbar-->
+
+        <div class="full-screen-scroller">
+            <div class="fss-dotted-scrollspy">
+                <button type="button" class="fss-nav-btn fss-mainview-prev">
+                  <i class="fas fa-chevron-up"></i>
+                </button>
+                <a href="#view-1" class="fss-nav-item"></a>
+                <a href="#view-2" class="fss-nav-item"></a>
+                <a href="#view-3" class="fss-nav-item"></a>
+                <button type="button" class="fss-nav-btn fss-mainview-next">
+                  <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+
+            <div fss-anchor="view-1" class="fss-mainview fss-active">
+                <div style="overflow: hidden; height: 100%; width: 100%">
+                    <div class="fss-subview fss-subview-0">
+              <div class="fss-dotted-scrollspy">
+                <button type="button" class="fss-nav-btn fss-subview-prev">
+                  <i class="fas fa-chevron-left"></i>
+                </button>
+                <a href="#subview-a" class="fss-nav-item active"></a>
+                <a href="#subview-b" class="fss-nav-item"></a>
+                <button type="button" class="fss-nav-btn fss-subview-next">
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+              </div>
+
+              <div fss-anchor="subview-a" class="fss-subview-item subview-a" style="background-image: url('{% static "imagens/bk1.jpg" %}'); background-repeat: no-repeat; background-size: cover; background-position: center center; height: 647px;">
+                <div class="box">
+                  <div class="info">
+                    <p>View 1</p>
+                    <p>Subview A</p>
+                  </div>
+                </div>
+              </div>
+
+              <div fss-anchor="subview-b" class="fss-subview-item fss-active" style="background-image: url('https://mdbootstrap.com/wp-content/uploads/2015/10/cover-ca-compressor2.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center; height: 647px;">
+                <div class="box">
+                  <div class="info">Subview B</div>
+                </div>
+              </div>
+            </div>
+                </div>
+            </div>
+
+            <div fss-anchor="view-2" class="fss-mainview" style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center; height: 657px;">
+                <div class="box">
+                    <div class="info">View 2</div>
+                </div>
+            </div>
+
+            <div fss-anchor="view-3" class="fss-mainview" style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/91.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center; height: 657px;">
+                <div class="box">
+                    <div class="info">View 3</div>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>
