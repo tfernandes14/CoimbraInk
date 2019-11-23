@@ -2,6 +2,7 @@
 body, html {
   height: 100%;
 }
+
 .bg {
   /* The image used */
   background-image: url('/static/imagens/bk1.jpg');
