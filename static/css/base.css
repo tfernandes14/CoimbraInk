@@ -15,3 +15,14 @@ body, html {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+/*If you use .navbar with .smooth-scroll, use this code to avoid overlapping navigation to a header.*/
+
+#test1::before,
+#test2::before {
+  display: block;
+  content: " ";
+  margin-top: -65px;
+  height: 65px;
+  visibility: hidden;
+}
