@@ -140,8 +140,8 @@
                     console.log(data_from_django);
 
                     map = new google.maps.Map(document.getElementById('map'), {
-                        center: new google.maps.LatLng(data_from_django[0][1], data_from_django[0][2]),
-                        zoom: 16,
+                        center: new google.maps.LatLng(40.201848, -8.415200),
+                        zoom: 13,
                         mapTypeId: google.maps.MapTypeId.ROADMAP,
                     });
 
@@ -149,18 +149,19 @@
 
                     var marker, i;
 
-                    for (i = 1; i < data_from_django.length; i++){
+                    for (i = 0; i < data_from_django.length; i++){
                         console.log("Ponto " + i + ": (" + data_from_django[i][1] + ", " + data_from_django[i][2] + ")");
                         marker = new google.maps.Marker({
                             position: new google.maps.LatLng(data_from_django[i][1], data_from_django[i][2]),
                             map: map
                         });
-                        google.maps.event.addEventListener(marker, 'click', (function (marker, i) {
-                            return function(){
+
+                        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                            return function() {
                                 infoWindow.setContent(data_from_django[i][0]);
                                 infoWindow.open(map, marker);
                             }
-                        }) (marker, i));
+                        })(marker, i));
                     }
                 }
             </script>
