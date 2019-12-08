@@ -48,89 +48,6 @@
         </nav>
 
         <div class="bg">
-            <!--Dummy sections with IDs coressponding with the links above-->
-            <div id="test1">
-                <h3>Section 1</h3>
-                <hr>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-            </div>
-
-
-            <div id="test2">
-                <h3>Section 2</h3>
-                <hr>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-                <h5>Smooth Scroll Example</h5>
-            </div>
             <!--<img src="https://maps.googleapis.com/maps/api/staticmap?center=40.186772,-8.415783&zoom=16&size=400x400&markers=color:red%7Clabel%7C40.186772,-8.415783&key=AIzaSyCrc4kHDhi7GOYb5IBKUn1mrj6MsX85eNg">-->
             <div id="map"></div>
             <script>
@@ -166,6 +83,10 @@
                 }
             </script>
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrc4kHDhi7GOYb5IBKUn1mrj6MsX85eNg&callback=initMap" async defer></script>
+
+            {% block background %}
+            {% endblock %}
+
         </div>
     </body>
 </html>
