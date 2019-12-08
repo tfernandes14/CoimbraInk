@@ -7,9 +7,10 @@ from .models import *
 
 
 def home(request):
+    reprografias = Reprografia.objects.all()
     todas = get_lat_long()
     print(todas)
-    return render(request, 'base.html', {'lista': todas})
+    return render(request, 'base.html', {'reprografias': reprografias, 'lista': todas})
 
 
 def get_lat_long():

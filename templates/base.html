@@ -36,10 +36,7 @@
                 <!-- Links -->
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link fss-nav-item waves-effect waves-light active" href="#test1">View 1</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link fss-nav-item waves-effect waves-light active" href="#test2">View 2</a>
+                        <a class="nav-link fss-nav-item waves-effect waves-light active" href="#mapa">Mapa</a>
                     </li>
                 </ul>
             </div>
@@ -47,45 +44,89 @@
 
         </nav>
 
-        <div class="bg">
-            <!--<img src="https://maps.googleapis.com/maps/api/staticmap?center=40.186772,-8.415783&zoom=16&size=400x400&markers=color:red%7Clabel%7C40.186772,-8.415783&key=AIzaSyCrc4kHDhi7GOYb5IBKUn1mrj6MsX85eNg">-->
-            <div id="map"></div>
-            <script>
-                var map;
-                var data_from_django = {{ lista|safe }};
-                function initMap(){
-                    console.log(data_from_django);
+        <div class="bg" style="background-image: url('/static/imagens/background.png');"></div>
+        <div class="bg" style="background-color: white;">
+              <div id="mapa">
+              <!--<img src="https://maps.googleapis.com/maps/api/staticmap?center=40.186772,-8.415783&zoom=16&size=400x400&markers=color:red%7Clabel%7C40.186772,-8.415783&key=AIzaSyCrc4kHDhi7GOYb5IBKUn1mrj6MsX85eNg">-->
+                <div class="parent-container d-flex">
+                  <div class="container">
+                      <div class="row mt-5 mb-5"></div>
+                      <div class="row mt-5">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8">
+                            <div class="table-wrapper-scroll-y my-custom-scrollbar" style="height: 400px;">
+                                <table class="table" style="background-color: #F4F1F0";>
+                                    <tbody>
+                                      {% for rep in reprografias %}
+                                        <tr>
+                                          <td>
+                                              <table class="table table-striped table-dark">
+                                                  <tbody style="color: black";>
+                                                      <tr>
+                                                          <th scope="row"> {{rep.nome}} {{rep.horario_abertura_semana_manha}}h-{{rep.horario_fecho_semana_tarde}}h</th>
+                                                      </tr>
+                                                      <tr>
+                                                        <td scope="row">Info</td>
+                                                      </tr>
+                                                  </tbody>
+                                              </table>
+                                          </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="container">
+                    <div class="row mt-5 mb-5"></div>
+                    <div class="row">
+                      <div class="col-md-1"></div>
+                      <div class="col-md-8">
+                        <div id="map"></div>
+                        <script>
+                            var map;
+                            var data_from_django = {{ lista|safe }};
+                            function initMap(){
+                                console.log(data_from_django);
 
-                    map = new google.maps.Map(document.getElementById('map'), {
-                        center: new google.maps.LatLng(40.201848, -8.415200),
-                        zoom: 13,
-                        mapTypeId: google.maps.MapTypeId.ROADMAP,
-                    });
+                                map = new google.maps.Map(document.getElementById('map'), {
+                                    center: new google.maps.LatLng(40.201848, -8.415200),
+                                    zoom: 13,
+                                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                                });
 
-                    var infoWindow = new google.maps.InfoWindow();
+                                var infoWindow = new google.maps.InfoWindow();
 
-                    var marker, i;
+                                var marker, i;
 
-                    for (i = 0; i < data_from_django.length; i++){
-                        console.log("Ponto " + i + ": (" + data_from_django[i][1] + ", " + data_from_django[i][2] + ")");
-                        marker = new google.maps.Marker({
-                            position: new google.maps.LatLng(data_from_django[i][1], data_from_django[i][2]),
-                            map: map
-                        });
+                                for (i = 0; i < data_from_django.length; i++){
+                                    console.log("Ponto " + i + ": (" + data_from_django[i][1] + ", " + data_from_django[i][2] + ")");
+                                    marker = new google.maps.Marker({
+                                        position: new google.maps.LatLng(data_from_django[i][1], data_from_django[i][2]),
+                                        map: map
+                                    });
 
-                        google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                            return function() {
-                                infoWindow.setContent(data_from_django[i][0]);
-                                infoWindow.open(map, marker);
+                                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                        return function() {
+                                            infoWindow.setContent(data_from_django[i][0]);
+                                            infoWindow.open(map, marker);
+                                        }
+                                    })(marker, i));
+                                }
                             }
-                        })(marker, i));
-                    }
-                }
-            </script>
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrc4kHDhi7GOYb5IBKUn1mrj6MsX85eNg&callback=initMap" async defer></script>
+                        </script>
+                        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrc4kHDhi7GOYb5IBKUn1mrj6MsX85eNg&callback=initMap" async defer></script>
 
-            {% block background %}
-            {% endblock %}
+                        <!-- e para o redinho mexer -->
+                        {% block background %}
+                        {% endblock %}
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              </div>
 
         </div>
     </body>
