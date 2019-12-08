@@ -21,7 +21,7 @@ class Reprografia(models.Model):
         return self.nome
 
 
-class A5(models.Model):
+class Acinco(models.Model):
     reprografia = models.OneToOneField(
         Reprografia,
         on_delete=models.CASCADE,
@@ -34,7 +34,7 @@ class A5(models.Model):
     plastificacao = models.FloatField(default=-1.0)
 
 
-class A4(models.Model):
+class Aquatro(models.Model):
     reprografia = models.OneToOneField(
         Reprografia,
         on_delete=models.CASCADE,
@@ -47,7 +47,7 @@ class A4(models.Model):
     plastificacao = models.FloatField(default=-1.0)
 
 
-class A3(models.Model):
+class Atres(models.Model):
     reprografia = models.OneToOneField(
         Reprografia,
         on_delete=models.CASCADE,
@@ -60,7 +60,7 @@ class A3(models.Model):
     plastificacao = models.FloatField(default=-1.0)
 
 
-class A2(models.Model):
+class Adois(models.Model):
     reprografia = models.OneToOneField(
         Reprografia,
         on_delete=models.CASCADE,
@@ -73,7 +73,7 @@ class A2(models.Model):
     plastificacao = models.FloatField(default=-1.0)
 
 
-class A1(models.Model):
+class Aum(models.Model):
     reprografia = models.OneToOneField(
         Reprografia,
         on_delete=models.CASCADE,
@@ -86,7 +86,7 @@ class A1(models.Model):
     plastificacao = models.FloatField(default=-1.0)
 
 
-class A0(models.Model):
+class Azero(models.Model):
     reprografia = models.OneToOneField(
         Reprografia,
         on_delete=models.CASCADE,

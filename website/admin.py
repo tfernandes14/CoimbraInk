@@ -44,10 +44,10 @@ class TeseAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Reprografia, ReprografiaAdmin)
-admin.site.register(A5, A5Admin)
-admin.site.register(A4, A4Admin)
-admin.site.register(A3, A3Admin)
-admin.site.register(A2, A2Admin)
-admin.site.register(A1, A1Admin)
-admin.site.register(A0, A0Admin)
+admin.site.register(Acinco, A5Admin)
+admin.site.register(Aquatro, A4Admin)
+admin.site.register(Atres, A3Admin)
+admin.site.register(Adois, A2Admin)
+admin.site.register(Aum, A1Admin)
+admin.site.register(Azero, A0Admin)
 admin.site.register(Tese, TeseAdmin)
