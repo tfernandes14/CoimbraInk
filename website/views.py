@@ -51,11 +51,11 @@ def contas(frente_verso,cores,frente,preto,encadernar,digitalizacao,plastificada
 
     if(frente_verso and cores):
         conta+=(objeto.frente_verso_cor_preco*numerosdePaginas)
-    else if(frente_verso and preto)
+    elif(frente_verso and preto):
         conta+=(objeto.frente_verso_preto_branco_preco*numerosdePaginas)
-    else if(frente and cores)
+    elif(frente and cores):
         conta+=(objeto.frente_cor_preco*numerosdePaginas)
-    else if(frente and preto)
+    elif(frente and preto):
         conta+=(objeto.frente_preto_branco_preco*numerosdePaginas)
 
     if(encadernar):
