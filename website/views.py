@@ -30,7 +30,7 @@ def get_lat_long():
 
 def simulador(request):
     reprografias = Reprografia.objects.all()
-
+    todas = get_lat_long()
     A5 = Acinco.objects.all()
     tese = Tese.objects.all()
     A4 = Aquatro.objects.all()
@@ -41,7 +41,7 @@ def simulador(request):
 
     return render(request, 'simulador.html', {'reprografias': reprografias,
                                               'A5': A5, 'A4': A4, 'A3': A3,
-                                              'A2': A2,'A1': A1, 'A0': A0, 'tese' : tese})
+                                              'A2': A2,'A1': A1, 'A0': A0, 'tese' : tese, 'lista': todas})
 
 
 def contas(frente_verso,cores,frente,preto,encadernar,digitalizacao,plastificada,numerosdePaginas,objeto):

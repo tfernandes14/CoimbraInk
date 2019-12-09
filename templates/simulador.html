@@ -1,37 +1,35 @@
 {% extends 'base.html' %}
+{% load static %}
+
+
+
 
 {% block background %}
-    <form action="calcular_preco" method="post">
-        <div class="py-5">
-            <p>Selecione a reprografia que pretende:</p>
-            <select class="w-25 custom-select">
-                  <option selected>Reprografia:</option>
-                    {% for reprografia in reprografias %}
-                        <option value="{{ reprografia.id }}">{{ reprografia.nome }}</option>
-                    {% endfor %}
-            </select>
-        </div>
+
+    <div class="col">
+
+    </div>
 
     {#    <p>Selecione o documento:</p>#}
-        <p>Indique o número de páginas A5 (deixe em branco se for 0):</p>
-
-        <input type="text" class="form-control w-25" name="a5">
-        <p>Indique o número de páginas A4 (deixe em branco se for 0):</p>
-
-        <input type="text" class="form-control w-25" name="a4">
-        <p>Indique o número de páginas A3 (deixe em branco se for 0):</p>
-
-        <input type="text" class="form-control w-25" name="a3">
-        <p>Indique o número de páginas A2 (deixe em branco se for 0):</p>
-
-        <input type="text" class="form-control w-25" name="a2">
-        <p>Indique o número de páginas A1 (deixe em branco se for 0):</p>
-
-        <input type="text" class="form-control w-25" name="a1">
-        <p>Indique o número de páginas A0 (deixe em branco se for 0):</p>
-        <input type="text" class="form-control w-25" name="a0">
-
-        <button type="submit" class="btn btn-success">Simular!</button>
+{#        <p>Indique o número de páginas A5 (deixe em branco se for 0):</p>#}
+{##}
+{#        <input type="text" class="form-control w-25" name="a5">#}
+{#        <p>Indique o número de páginas A4 (deixe em branco se for 0):</p>#}
+{##}
+{#        <input type="text" class="form-control w-25" name="a4">#}
+{#        <p>Indique o número de páginas A3 (deixe em branco se for 0):</p>#}
+{##}
+{#        <input type="text" class="form-control w-25" name="a3">#}
+{#        <p>Indique o número de páginas A2 (deixe em branco se for 0):</p>#}
+{##}
+{#        <input type="text" class="form-control w-25" name="a2">#}
+{#        <p>Indique o número de páginas A1 (deixe em branco se for 0):</p>#}
+{##}
+{#        <input type="text" class="form-control w-25" name="a1">#}
+{#        <p>Indique o número de páginas A0 (deixe em branco se for 0):</p>#}
+{#        <input type="text" class="form-control w-25" name="a0">#}
+{##}
+{#        <button type="submit" class="btn btn-success">Simular!</button>#}
     </form>
 {% endblock %}
 

@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <link href="{% static 'bootstrap/css/addons/datatables.min.css' %}" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
@@ -38,6 +39,12 @@
                     <li class="nav-item">
                         <a class="nav-link fss-nav-item waves-effect waves-light active" href="#mapa">Mapa</a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link fss-nav-item waves-effect waves-light active" href="simulador">Simulador</a>
+                    </li>
+
+
                 </ul>
             </div>
             <!-- Collapsible content -->
@@ -54,28 +61,35 @@
                       <div class="row mt-5">
                         <div class="col-md-2"></div>
                         <div class="col-md-8">
-                            <div class="table-wrapper-scroll-y my-custom-scrollbar" style="height: 450px;">
-                                <table class="table" style="background-color: #F4F1F0";>
-                                    <tbody>
+
+{#                            <div class="table-wrapper-scroll-y my-custom-scrollbar" style="height: 450px;">#}
+{#                                <table class="table" style="background-color: #F4F1F0"; id="myList">#}
+                            <div class="container mt-3">
+                                <input class="form-control" id="myInput" type="text" placeholder="Search..">
+                                <ul class="list-group" id="myList">
+{#                                    <tbody>#}
                                       {% for rep in reprografias %}
-                                        <tr>
-                                          <td>
-                                              <table class="table table-striped table-dark">
-                                                  <tbody style="color: black";>
-                                                      <tr>
-                                                          <th scope="row"> {{rep.nome}} {{rep.horario_abertura_semana_manha}}h-{{rep.horario_fecho_semana_tarde}}h</th>
-                                                      </tr>
-                                                      <tr>
-                                                        <td scope="row">Info</td>
-                                                      </tr>
-                                                  </tbody>
-                                              </table>
-                                          </td>
-                                        </tr>
+{#                                        <tr>#}
+{#                                          <td>#}
+{#                                              <table class="table table-striped table-dark">#}
+{#                                                  <tbody style="color: black";>#}
+{#                                                      <tr>#}
+
+                                                          <li class="list-group-item"> {{rep.nome}} {{rep.horario_abertura_semana_manha}}h-{{rep.horario_fecho_semana_tarde}}</li>
+{#                                                      </tr>#}
+{#                                                      <tr>#}
+{#                                                        <li class="list-group-item">Info</li>#}
+{#                                                      </tr>#}
+{#                                                  </tbody>#}
+{#                                              </table>#}
+{#                                          </td>#}
+{#                                        </tr>#}
                                     {% endfor %}
-                                    </tbody>
-                                </table>
+{#                                    </tbody>#}
+                                </ul>
                             </div>
+{#                                </table>#}
+{#                            </div>#}
                         </div>
                     </div>
                   </div>
@@ -119,15 +133,34 @@
                         </script>
                         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrc4kHDhi7GOYb5IBKUn1mrj6MsX85eNg&callback=initMap" async defer></script>
 
-                        <!-- e para o redinho mexer -->
-                        {% block background %}
-                        {% endblock %}
+
                       </div>
                     </div>
                   </div>
               </div>
-              </div>
+          </div>
+          <div class="col">
+                  <!-- e para o redinho mexer -->
+            {% block background %}
+            {% endblock %}
 
         </div>
+
+
+
+        <script>
+        $(document).ready(function(){
+          $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myList li").filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+          });
+        });
+        </script>
+        </div>
+
+
+
     </body>
 </html>
