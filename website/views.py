@@ -42,3 +42,27 @@ def simulador(request):
     return render(request, 'simulador.html', {'reprografias': reprografias,
                                               'A5': A5, 'A4': A4, 'A3': A3,
                                               'A2': A2,'A1': A1, 'A0': A0, 'tese' : tese})
+
+
+def contas(frente_verso,cores,frente,preto,encadernar,digitalizacao,plastificada,numerosdePaginas,objeto):
+    #o objeto corresponde ao objeto certo que passamos, pode ser um do A5 ou um do A4
+
+    conta=0
+
+    if(frente_verso and cores):
+        conta+=(objeto.frente_verso_cor_preco*numerosdePaginas)
+    else if(frente_verso and preto)
+        conta+=(objeto.frente_verso_preto_branco_preco*numerosdePaginas)
+    else if(frente and cores)
+        conta+=(objeto.frente_cor_preco*numerosdePaginas)
+    else if(frente and preto)
+        conta+=(objeto.frente_preto_branco_preco*numerosdePaginas)
+
+    if(encadernar):
+        conta+=objeto.encadernacao
+    if(digitalizacao):
+        conta+=objeto.digitalizacao
+    if(plastificada):
+        conta+=objeto.plastificacao
+
+    return conta
