@@ -67,29 +67,58 @@
                             <div class="container mt-3">
                                 <input class="form-control" id="myInput" type="text" placeholder="Search..">
                                 <ul class="list-group" id="myList">
-{#                                    <tbody>#}
-                                      {% for rep in reprografias %}
-{#                                        <tr>#}
-{#                                          <td>#}
-{#                                              <table class="table table-striped table-dark">#}
-{#                                                  <tbody style="color: black";>#}
-{#                                                      <tr>#}
+                                    {% for rep in reprografias %}
+                                        <div class="panel panel-default list-group-item">
+                                            <div class="panel-heading accordion-toggle question-toggle collapsed" data-toggle="collapse" data-parent="#myList" data-target="#question0">
+                                                 <h4 class="panel-title">
+                                                    <a  class="ing">{{rep.nome}} {{rep.horario_abertura_semana_manha}}h-{{rep.horario_fecho_semana_tarde}}</a>
+                                              </h4>
 
-                                                          <li class="list-group-item"> {{rep.nome}} {{rep.horario_abertura_semana_manha}}h-{{rep.horario_fecho_semana_tarde}}</li>
-{#                                                      </tr>#}
-{#                                                      <tr>#}
-{#                                                        <li class="list-group-item">Info</li>#}
-{#                                                      </tr>#}
-{#                                                  </tbody>#}
-{#                                              </table>#}
-{#                                          </td>#}
-{#                                        </tr>#}
+                                            </div>
+                                            <div id="question0" class="panel-collapse collapse" style="height: 0px;">
+                                                <div class="panel-body">
+                                                     <h5><span class="label label-primary">Answer</span></h5>
+
+                                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five <a href="http://jquery2dotnet.com/" class="label label-success">http://jquery2dotnet.com/</a> centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                                        </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default list-group-item">
+                                            <div class="panel-heading accordion-toggle question-toggle collapsed" data-toggle="collapse" data-parent="#myList" data-target="#question1">
+                                                 <h4 class="panel-title">
+                                                    <a  class="ing">Olaaa</a>
+                                              </h4>
+
+                                            </div>
+                                            <div id="question1" class="panel-collapse collapse" style="height: 0px;">
+                                                <div class="panel-body">
+                                                     <h5><span class="label label-primary">Answer</span></h5>
+
+                                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five <a href="http://jquery2dotnet.com/" class="label label-success">http://jquery2dotnet.com/</a> centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                                        </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default list-group-item">
+                                            <div class="panel-heading accordion-toggle question-toggle collapsed" data-toggle="collapse" data-parent="#myList" data-target="#question2">
+                                                 <h4 class="panel-title">
+                                                    <a  class="ing">Mariaaa</a>
+                                              </h4>
+
+                                            </div>
+                                            <div id="question2" class="panel-collapse collapse" style="height: 0px;">
+                                                <div class="panel-body">
+                                                     <h5><span class="label label-primary">Answer</span></h5>
+
+                                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five <a href="http://jquery2dotnet.com/" class="label label-success">http://jquery2dotnet.com/</a> centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                                        </p>
+                                                </div>
+                                            </div>
+                                        </div>
                                     {% endfor %}
-{#                                    </tbody>#}
                                 </ul>
                             </div>
-{#                                </table>#}
-{#                            </div>#}
                         </div>
                     </div>
                   </div>
@@ -152,7 +181,7 @@
         $(document).ready(function(){
           $("#myInput").on("keyup", function() {
             var value = $(this).val().toLowerCase();
-            $("#myList li").filter(function() {
+            $("#myList a").filter(function() {
               $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
           });
