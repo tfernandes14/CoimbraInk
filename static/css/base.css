@@ -6,32 +6,56 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Backgrounds */
 .bg {
   /* The image used */
-
-
   /* Full height */
   height: 100%;
   width: 100%;
-
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
+.background1 {
+    background-image: url('../imagens/background.png');
+}
+
+.background2{
+    background-color: white;
+}
+
+/*Google Map*/
+#map{
+  height: 500px;
+  width: 500px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/*Search*/
+.form-control {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/*Lista de reprografias*/
 .my-custom-scrollbar {
     position: relative;
     height: 300px;
     overflow: auto;
+    border: 5px;
 }
 .table-wrapper-scroll-y {
     display: block;
+    height: 454px;
+    background: #F4F1F0;
+    padding: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 /* width */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
 }
 
 /* Track */
@@ -49,10 +73,36 @@ html {
   background: #555;
 }
 
+.list-group-item {
+    box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.25);
+}
 
-#map{
-  height: 500px;
-  width: 500px;
+.rep-name {
+    font-family: Red Hat Text;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 24px;
+    color: #286895;
+}
+
+.rep-info1 {
+    font-size: 18px;
+}
+
+.clock-img {
+    width: 75%;
+    height: 75%;
+}
+
+.pin-img {
+    width: 20%;
+    height: 20%;
+}
+
+.rep-info2 {
+    font-size: 15px;
+    font-weight: 300;
 }
 
 /*If you use .navbar with .smooth-scroll, use this code to avoid overlapping navigation to a header.*/
@@ -64,4 +114,27 @@ html {
   margin-top: -65px;
   height: 65px;
   visibility: hidden;
+}
+
+.list-group-item {
+  cursor: pointer;
+}
+
+/*footer*/
+.text-footer {
+    font-family: Red Hat Text;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 17px;
+    color: #286895;
+}
+
+.text-footer:hover {
+    color: #286895;
+}
+
+.logo-footer {
+    width: 20%;
+    margin-right: 10px;
 }
