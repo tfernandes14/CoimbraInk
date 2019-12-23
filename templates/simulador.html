@@ -4,32 +4,127 @@
 
 
 
+
 {% block background %}
 
-    <div class="col">
-
-    </div>
-
-    {#    <p>Selecione o documento:</p>#}
-{#        <p>Indique o número de páginas A5 (deixe em branco se for 0):</p>#}
-{##}
-{#        <input type="text" class="form-control w-25" name="a5">#}
-{#        <p>Indique o número de páginas A4 (deixe em branco se for 0):</p>#}
-{##}
-{#        <input type="text" class="form-control w-25" name="a4">#}
-{#        <p>Indique o número de páginas A3 (deixe em branco se for 0):</p>#}
-{##}
-{#        <input type="text" class="form-control w-25" name="a3">#}
-{#        <p>Indique o número de páginas A2 (deixe em branco se for 0):</p>#}
-{##}
-{#        <input type="text" class="form-control w-25" name="a2">#}
-{#        <p>Indique o número de páginas A1 (deixe em branco se for 0):</p>#}
-{##}
-{#        <input type="text" class="form-control w-25" name="a1">#}
-{#        <p>Indique o número de páginas A0 (deixe em branco se for 0):</p>#}
-{#        <input type="text" class="form-control w-25" name="a0">#}
-{##}
-{#        <button type="submit" class="btn btn-success">Simular!</button>#}
-    </form>
+	 <div class="row" style="height: 100px;"></div>
+	 <div class="row">
+		<div class="col-md-3" style="margin-left:5%">
+			<input class="form-control" id="inputSearch" type="text" placeholder="Search.." style="background: #F4F1F0;">
+			<div class="table-wrapper-scroll-y my-custom-scrollbar mt-2" style="background: #F4F1F0;border-radius:10px;height: 415px;">
+				{% for i in '0123456789'|make_list %}
+					<div class=" list-group-item mb-2 "  style="margin-left:2px;margin-right:15px;height: 45px;border-radius:20px;">			 
+					 	<span class="rep-name">Ola </span>
+					</div>
+					 {% endfor %}
+			</div>
+		</div>
+		<div class="col-md-5">
+			<form method='post'>
+			<div class="table-wrapper-scroll-y  mt-2" style="background: #F4F1F0;border-radius:10px;">
+				<h2  style="margin-left: 20px;font-weight: bold;font-size: 30px;color: #286895;text-align:center">Nome Selecionado</h2>
+				<div class="row">				
+					<div class="col-4">
+						<p style="color: #286895;font-size: 20px;font-weight: bold;margin-left: 10px;">Tipo pagina: </p>
+					</div>
+					<div class="col">
+						<select>
+						  <option value="A1">A1</option>
+						  <option value="A2">A2</option>
+						  <option value="A3">A3</option>
+						  <option value="A4">A4</option>
+						  <option value="A5">A5</option>
+						</select>
+					</div>
+				</div>
+				<div class="row">				
+					<div class="col-4">
+						<p style="color: #286895;font-size: 20px;font-weight: bold;margin-left: 10px;">Nº paginas: </p>
+					</div>
+					<div class="col">
+						<input type="text" name="lname" style="height:30px;">
+					</div>
+				</div>
+				<div class="row">
+                    <div class="col-5">
+						<p style="color: #286895;font-size: 20px;font-weight: bold;margin-left: 10px;">Preto e Branco: </p>
+					</div>
+					<div class="col">
+						<div class="checkbox checkbox-info checkbox-circle">
+							<input type="checkbox" value="preto_branco" >
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-5">
+						<p style="color: #286895;font-size: 20px;font-weight: bold;margin-left: 10px;">Preto e Branco: </p>
+					</div>
+					<div class="col">
+						<div class="checkbox checkbox-info checkbox-circle">
+                        	<input type="checkbox" value="cores">
+                    	</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-5">
+						<p style="color: #286895;font-size: 20px;font-weight: bold;margin-left: 10px;">Encadernacao: </p>
+					</div>
+					<div class="col">
+						<div class="checkbox checkbox-info checkbox-circle">
+                        	<input type="checkbox" value="encadernar" >
+                    	</div>
+					</div>
+				
+				</div>
+				<div class="row">
+                    <div class="col-5">
+						<p style="color: #286895;font-size: 20px;font-weight: bold;margin-left: 10px;">Plastificacao: </p>
+					</div>
+					<div class="col">
+						<div class="checkbox checkbox-info checkbox-circle">
+                        	<input type="checkbox" value="plastificar" >
+                    	</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-2">
+						<p style="color: #286895;font-size: 20px;font-weight: bold;margin-left: 10px;">Total: </p>
+					</div>
+					<div class="col" >
+						<p style="color:rgb(64, 64, 64);font-size: 20px;">14,00 € </p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<button class=" list-group-item" style="font-size: 17px; border-radius:10px;font-weight: bold;color: #286895;" id="simular" type="submit">Simular</button>
+					</div>
+					<div class="col" align="right">
+						<button class=" list-group-item" style="font-size: 17px; border-radius:10px;font-weight: bold;color: #286895;" id="adicionar" type="submit">Adicionar</button>
+					</div>
+				</div>
+			</div>
+			</form>
+		</div>
+		<div class="col-md-3">
+			<div class="table-wrapper-scroll-y my-custom-scrollbar mt-2" style="background: #F4F1F0;border-radius:10px;">
+				<h2  style="margin-left: 20px;font-weight: bold;font-size: 30px;color: #286895;">Documento</h2>
+				<form method='post'>
+				{% for i in '012'|make_list %}
+					
+						<div class="checkbox checkbox-info checkbox-circle">
+                        <input id={{ i }} type="checkbox" style="margin-left: 10px">
+                        <label for={{ i }} >
+                            <p style="color:rgb(64, 64, 64);font-size: 23px;font-weight: bold;">ficheiro.pdf </p>
+                        </label>
+                    	</div>
+						
+					
+					 {% endfor %}
+				<button class=" list-group-item" style="margin-left: 30%;font-size: 17px; margin-top: 50%;border-radius:10px;font-weight: bold;color: #286895;" id="novoDoc" type="submit">Novo Documento</button>
+				</form>
+			</div>
+		</div>
+	</div>
+    
 {% endblock %}
 
