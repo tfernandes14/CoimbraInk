@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.core.exceptions import ObjectDoesNotExist
-from .models import *
+import requests
 
 
 from .models import *
@@ -16,7 +16,11 @@ def home(request):
 def get_lat_long():
     res = []
     tam_reprografias = len(list(Reprografia.objects.all()))
-    print("&&&&", tam_reprografias)
+    response = requests.post('https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyCrc4kHDhi7GOYb5IBKUn1mrj6MsX85eNg')
+    # print("$$$", response.json())
+    # print("%%%%", response.json()['location']['lat'])
+    # print("$$$$", response.json()['location']['lng'])
+    res.append(["", response.json()['location']['lat'], response.json()['location']['lng']])
     for i in range(1, tam_reprografias + 2):
         try:
             rep = Reprografia.objects.get(id=i)
