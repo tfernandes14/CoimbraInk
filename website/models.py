@@ -27,8 +27,10 @@ class Acinco(models.Model):
         on_delete=models.CASCADE,
         primary_key=True,
     )
-    cor_preco = models.FloatField(default=-1.0)
-    preto_branco_preco = models.FloatField(default=-1.0)
+    frente_cor_preco = models.FloatField(default=-1.0)
+    frente_preto_branco_preco = models.FloatField(default=-1.0)
+    frente_verso_cor_preco = models.FloatField(default=-1.0)
+    frente_verso_preto_branco_preco = models.FloatField(default=-1.0)
     encadernacao = models.FloatField(default=-1.0)
     digitalizacao = models.FloatField(default=-1.0)
     plastificacao = models.FloatField(default=-1.0)
@@ -40,8 +42,10 @@ class Aquatro(models.Model):
         on_delete=models.CASCADE,
         primary_key=True
     )
-    cor_preco = models.FloatField(default=-1.0)
-    preto_branco_preco = models.FloatField(default=-1.0)
+    frente_cor_preco = models.FloatField(default=-1.0)
+    frente_preto_branco_preco = models.FloatField(default=-1.0)
+    frente_verso_cor_preco = models.FloatField(default=-1.0)
+    frente_verso_preto_branco_preco = models.FloatField(default=-1.0)
     encadernacao = models.FloatField(default=-1.0)
     digitalizacao = models.FloatField(default=-1.0)
     plastificacao = models.FloatField(default=-1.0)
@@ -53,8 +57,10 @@ class Atres(models.Model):
         on_delete=models.CASCADE,
         primary_key=True
     )
-    cor_preco = models.FloatField(default=-1.0)
-    preto_branco_preco = models.FloatField(default=-1.0)
+    frente_cor_preco = models.FloatField(default=-1.0)
+    frente_preto_branco_preco = models.FloatField(default=-1.0)
+    frente_verso_cor_preco = models.FloatField(default=-1.0)
+    frente_verso_preto_branco_preco = models.FloatField(default=-1.0)
     encadernacao = models.FloatField(default=-1.0)
     digitalizacao = models.FloatField(default=-1.0)
     plastificacao = models.FloatField(default=-1.0)
@@ -66,8 +72,10 @@ class Adois(models.Model):
         on_delete=models.CASCADE,
         primary_key=True
     )
-    cor_preco = models.FloatField(default=-1.0)
-    preto_branco_preco = models.FloatField(default=-1.0)
+    frente_cor_preco = models.FloatField(default=-1.0)
+    frente_preto_branco_preco = models.FloatField(default=-1.0)
+    frente_verso_cor_preco = models.FloatField(default=-1.0)
+    frente_verso_preto_branco_preco = models.FloatField(default=-1.0)
     encadernacao = models.FloatField(default=-1.0)
     digitalizacao = models.FloatField(default=-1.0)
     plastificacao = models.FloatField(default=-1.0)
@@ -79,8 +87,10 @@ class Aum(models.Model):
         on_delete=models.CASCADE,
         primary_key=True
     )
-    cor_preco = models.FloatField(default=-1.0)
-    preto_branco_preco = models.FloatField(default=-1.0)
+    frente_cor_preco = models.FloatField(default=-1.0)
+    frente_preto_branco_preco = models.FloatField(default=-1.0)
+    frente_verso_cor_preco = models.FloatField(default=-1.0)
+    frente_verso_preto_branco_preco = models.FloatField(default=-1.0)
     encadernacao = models.FloatField(default=-1.0)
     digitalizacao = models.FloatField(default=-1.0)
     plastificacao = models.FloatField(default=-1.0)
@@ -92,8 +102,10 @@ class Azero(models.Model):
         on_delete=models.CASCADE,
         primary_key=True
     )
-    cor_preco = models.FloatField(default=-1.0)
-    preto_branco_preco = models.FloatField(default=-1.0)
+    frente_cor_preco = models.FloatField(default=-1.0)
+    frente_preto_branco_preco = models.FloatField(default=-1.0)
+    frente_verso_cor_preco = models.FloatField(default=-1.0)
+    frente_verso_preto_branco_preco = models.FloatField(default=-1.0)
     encadernacao = models.FloatField(default=-1.0)
     digitalizacao = models.FloatField(default=-1.0)
     plastificacao = models.FloatField(default=-1.0)
