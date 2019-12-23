@@ -43,18 +43,19 @@ def simulador(request):
                                               'A2': a2,'A1': a1, 'A0': a0, 'tese' : tese, 'lista': todas})
 
 
-def contas(frente_verso, cores, frente, preto, encadernar, digitalizacao, plastificada, numeros_paginas, objeto):
-    # o objeto corresponde ao objeto certo que passamos, pode ser um do A5 ou um do A4
+def contas(frente_verso, cores, frente, preto, encadernar, digitalizacao, plastificada, numero_paginas, objeto):
+    # O objeto corresponde ao objeto certo que passamos, pode ser um do A5 ou um do A4
+
     conta = 0
 
     if frente_verso and cores:
-        conta += objeto.frente_verso_cor_preco * numeros_paginas
+        conta += objeto.frente_verso_cor_preco * numero_paginas
     elif frente_verso and preto:
-        conta += objeto.frente_verso_preto_branco_preco * numeros_paginas
+        conta += objeto.frente_verso_preto_branco_preco * numero_paginas
     elif frente and cores :
-        conta += objeto.frente_cor_preco * numeros_paginas
+        conta += objeto.frente_cor_preco * numero_paginas
     elif frente and preto:
-        conta += objeto.frente_preto_branco_preco * numeros_paginas
+        conta += objeto.frente_preto_branco_preco * numero_paginas
 
     if encadernar:
         conta += objeto.encadernacao
