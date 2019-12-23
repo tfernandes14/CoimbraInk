@@ -1,9 +1,7 @@
 from django.shortcuts import render
 from django.core.exceptions import ObjectDoesNotExist
-import requests
-
-
 from .models import *
+import requests
 
 
 def home(request):
@@ -17,9 +15,6 @@ def get_lat_long():
     res = []
     tam_reprografias = len(list(Reprografia.objects.all()))
     response = requests.post('https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyCrc4kHDhi7GOYb5IBKUn1mrj6MsX85eNg')
-    # print("$$$", response.json())
-    # print("%%%%", response.json()['location']['lat'])
-    # print("$$$$", response.json()['location']['lng'])
     res.append(["", response.json()['location']['lat'], response.json()['location']['lng']])
     for i in range(1, tam_reprografias + 2):
         try:
@@ -35,14 +30,14 @@ def get_lat_long():
 def simulador(request):
     reprografias = Reprografia.objects.all()
 
-    A5 = Acinco.objects.all()
+    a5 = Acinco.objects.all()
     tese = Tese.objects.all()
-    A4 = Aquatro.objects.all()
-    A3 = Atres.objects.all()
-    A2 = Adois.objects.all()
-    A1 = Aum.objects.all()
-    A0 = Azero.objects.all()
+    a4 = Aquatro.objects.all()
+    a3 = Atres.objects.all()
+    a2 = Adois.objects.all()
+    a1 = Aum.objects.all()
+    a0 = Azero.objects.all()
 
     return render(request, 'simulador.html', {'reprografias': reprografias,
-                                              'A5': A5, 'A4': A4, 'A3': A3,
-                                              'A2': A2,'A1': A1, 'A0': A0, 'tese' : tese})
+                                              'A5': a5, 'A4': a4, 'A3': a3,
+                                              'A2': a2, 'A1': a1, 'A0': a0, 'tese': tese})
