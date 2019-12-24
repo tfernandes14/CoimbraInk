@@ -62,16 +62,34 @@
                           <div class="col-md-2"></div>
                           <div class="col-md-9">
                               <div class="container">
-                                  <input class="form-control" id="myInput" type="text" placeholder="Search.." style="background: #F4F1F0;">
+                                    <div class="row">
+                                        <div class="col-md-7">
+                                            <input  class="form-control" id="myInput" type="text" placeholder="Search location.." style="background: #F4F1F0;">
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="form-control" style="background: #F4F1F0;">
+                                                <div class="row">
+                                                    <div class="col-md-4" style="width: 10px; background: #FFF; margin-left: 15px; box-shadow: 0px 0px 4px #000000; border-radius: 5px;">
+                                                        <div class="row" id="orderList" style="display: flex; justify-content:space-around; align-items: center; cursor: pointer;" >
+                                                            <a style="color: #286895; font-size:16px; font-weight: 600;">A-z</a>
+                                                            <img src="/static/imagens/triangulo.png" style="width: 25%; height: 40%;">
+                                                        </div>
+                                                    </div>
+                                                    <a id="orderLocal" style="margin-left: 20px; cursor: pointer;">Local</a>
+                                                    <a style="margin-left: 20px;">€</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                   <div class="table-wrapper-scroll-y my-custom-scrollbar mt-2">
                                       <ul class="list-group" id="myList">
                                           {% for rep in reprografias %}
                                               <div class="panel panel-default list-group-item mb-2">
-                                                  <div class="panel-heading accordion-toggle question-toggle collapsed" data-toggle="collapse" data-parent="#myList" data-target="#question0">
+                                                  <div class="panel-heading accordion-toggle question-toggle collapsed" data-toggle="collapse" data-parent="#myList" data-target="#{{rep.nome}}">
                                                       <div class="panel-title">
-                                                          <div class="row">
+                                                          <div class="row" id="infor">
                                                               <div class="col-md-4">
-                                                                  <span class="rep-name">{{rep.nome}}</span>
+                                                                  <span class="rep-name" id="nomeReprografia">{{rep.nome}}</span>
                                                               </div>
                                                               <div class="col-md-4">
                                                                   <div class="row">
@@ -93,7 +111,7 @@
                                                                  <div class="row">
                                                                     <img class="pin-img" src="/static/imagens/pin.png">
                                                                      <div class="col-ml-2"></div>
-                                                                     <a  class="rep-info1">Celas</a>
+                                                                     <a  class="rep-info1" id="localizacaoReprografia">Celas</a>
                                                                  </div>
                                                                  <div class="row"></div>
                                                              </div>
@@ -103,12 +121,12 @@
                                                          <p class="rep-info2">Preto e Branco: 0.05€/pagina COR: 0.10€/pagina</p>
                                                      </div>
                                                   </div>
-                                                  <div id="question0" class="panel-collapse collapse" style="height: 0px;">
+                                                  <div id="{{rep.nome}}" class="panel-collapse collapse" style="height: 0px;">
                                                     <div class="panel-body">
                                                         <p class ="rep-info2">Encardenamento: 3,50€</p>
                                                         <p class ="rep-info2">Website: www.sdfafdsaf.com</p>
                                                     </div>
-                                                </div>
+                                                  </div>
                                             </div>
                                         {% endfor %}
                                     </ul>
@@ -195,15 +213,44 @@
                 </div>
             </div>
 
-
             <script>
             $(document).ready(function(){
-              $("#myInput").on("keyup", function() {
-                var value = $(this).val().toLowerCase();
-                $("#myList a").filter(function() {
-                  $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                $("#myInput").on("keyup", function() {
+                  var filter, i=0;
+                  filter = $(this).val().toLowerCase();
+                  console.log(filter);
+                  var list = document.getElementById("myList");
+
+                  $.each($('#myList #infor'), function() {
+                      var element = this;
+                      var nome = element.getElementsByTagName("div")[0];
+                      nome = nome.getElementsByTagName("span")[0];
+                      var localizacao = element.getElementsByTagName("div")[10];
+                      localizacao = localizacao.getElementsByTagName("a")[0];
+                      nome = nome.textContent || nome.innerText;
+                      localizacao = localizacao.textContent || localizacao.innerText;
+                      var div = list.getElementsByClassName("list-group-item")[i];
+                      if (nome.toLowerCase().indexOf(filter) > -1 || localizacao.toLowerCase().indexOf(filter)> -1) {
+                          div.style.display = "";
+                      }
+                      else{
+                          div.style.display = "none";
+                      }
+                      i++;
                   });
-              });
+                });
+            });
+
+            $("#orderList").click( function() {
+                $("#myList .list-group-item").detach().sort(function(a, b) {
+                   return ($(b).find("#nomeReprografia").text().toUpperCase()) < ($(a).find("#nomeReprografia").text().toUpperCase()) ? 1 : -1;
+                }).appendTo("#myList");
+            });
+
+            $("#orderLocal").click( function() {
+                $("#myList .list-group-item").detach().sort(function(a, b) {
+                   return ($(b).find("#localizacaoReprografia").text().toUpperCase()) < ($(a).find("#localizacaoReprografia").text().toUpperCase()) ? 1 : -1;
+                }).appendTo("#myList");
             });
             </script>
         </div>
