@@ -145,3 +145,11 @@ html {
     width: 20%;
     margin-right: 10px;
 }
+
+.navbar-toggler {
+    border: none;
+}
+
+.fas{
+    color: #286895;
+}

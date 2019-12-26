@@ -22,38 +22,45 @@
     </head>
 
     <body>
-
-        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-
-            <!-- Navbar brand -->
-            <a class="navbar-brand" href="#">CoimbraInk</a>
-
-            <!-- Collapse button -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav" aria-expanded="true" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!-- Collapsible content -->
-            <div class="navbar-collapse collapse show" id="basicExampleNav">
-
-                <!-- Links -->
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link fss-nav-item waves-effect waves-light active" href="#mapa">Mapa</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link fss-nav-item waves-effect waves-light active" href="simulador">Simulador</a>
-                    </li>
+        <!--Navbar-->
 
 
-                </ul>
+        <div class="bg background1">
+             <nav class="navbar navbar-light purple lighten-4 mb-4">
+                  <!-- Navbar brand -->
+                  <div class="row" style="height: 140px;">
+                    <!-- Collapse button -->
+                  <button class="navbar-toggler toggler-example purple darken-3" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent41" aria-controls="navbarSupportedContent41" aria-expanded="false"
+                    aria-label="Toggle navigation" style="display: flex; align-self: flex-start;"><span class="white-text"><i class="fas fa-bars fa-1x"></i></span></button>
+
+                  <!-- Collapsible content -->
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent41">
+
+                    <!-- Links -->
+                    <ul class="navbar-nav mr-auto">
+                       <li class="nav-item">
+                            <a class="nav-link fss-nav-item waves-effect waves-light active" href="#mapa" style="color: #286895;">Mapa</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link fss-nav-item waves-effect waves-light active" href="simulador" style="color: #286895;">Simulador</a>
+                        </li>
+                    </ul>
+                    <!-- Links -->
+
+                  </div>
+                  <!-- Collapsible content -->
+                  </div>
+
+
+            </nav>
+            <!--/.Navbar-->
+            <div class="row" style="height: 550px;"></div>
+            <div class="row" style="display: flex; justify-content: center;">
+                <img src="/static/imagens/setas.png" id="scroll-img" style="width: 5%; transform: rotate(180deg); cursor:pointer;">
             </div>
-            <!-- Collapsible content -->
-
-        </nav>
-
-        <div class="bg background1"></div>
+        </div>
         <div class="bg background2">
               <div id="mapa">
                 <div class="parent-container d-flex">
@@ -194,7 +201,7 @@
             </div>
 
 
-            <div class="row" style=" height: 120px;"></div>
+            <div class="row" </div>"></div>
 
 
             <div class="row mt-5" style="height: 40px; background: #F4F1F0;">
@@ -253,6 +260,12 @@
                    return ($(b).find("#localizacaoReprografia").text().toUpperCase()) < ($(a).find("#localizacaoReprografia").text().toUpperCase()) ? 1 : -1;
                 }).appendTo("#myList");
             });
+
+            $("#scroll-img").click(function() {
+                $('html,body').animate({
+                scrollTop: $("#mapa").offset().top},
+                'slow');
+             });
             </script>
         </div>
     </body>
