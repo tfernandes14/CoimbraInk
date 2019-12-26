@@ -4,8 +4,12 @@ from django.db import models
 # Create your models here.
 class Reprografia(models.Model):
     nome = models.CharField(max_length=50)
+    zona = models.CharField(max_length=50)
     latitude = models.FloatField()
     longitude = models.FloatField()
+    webiste = models.CharField(max_length=50, default=-1)
+    contacto = models.IntegerField(max_length=9, default=-1)
+    email = models.CharField(max_length=50, default=-1)
     rating_medio = models.FloatField(default=0.0)
     horario_abertura_semana_manha = models.FloatField()     # 9.30 ==> 9h30
     horario_fecho_semana_manha = models.FloatField()     # 9.30 ==> 9h30
