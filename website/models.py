@@ -8,17 +8,17 @@ class Reprografia(models.Model):
     latitude = models.FloatField()
     longitude = models.FloatField()
     webiste = models.CharField(max_length=50, default=-1)
-    contacto = models.IntegerField(max_length=9, default=-1)
+    contacto = models.IntegerField(default=-1)
     email = models.CharField(max_length=50, default=-1)
     rating_medio = models.FloatField(default=0.0)
-    horario_abertura_semana_manha = models.FloatField()     # 9.30 ==> 9h30
-    horario_fecho_semana_manha = models.FloatField()     # 9.30 ==> 9h30
-    horario_abertura_semana_tarde = models.FloatField()     # 9.30 ==> 9h30
-    horario_fecho_semana_tarde = models.FloatField()     # 9.30 ==> 9h30
-    horario_abertura_fds_manha = models.FloatField()     # 9.30 ==> 9h30
-    horario_fecho_fds_manha = models.FloatField()     # 9.30 ==> 9h30
-    horario_abertura_fds_tarde = models.FloatField()     # 9.30 ==> 9h30
-    horario_fecho_fds_tarde = models.FloatField()     # 9.30 ==> 9h30
+    horario_abertura_semana_manha = models.FloatField(default=9.30)     # 9.30 ==> 9h30
+    horario_fecho_semana_manha = models.FloatField(default=9.30)     # 9.30 ==> 9h30
+    horario_abertura_semana_tarde = models.FloatField(default=9.30)     # 9.30 ==> 9h30
+    horario_fecho_semana_tarde = models.FloatField(default=9.30)     # 9.30 ==> 9h30
+    horario_abertura_fds_manha = models.FloatField(default=9.30)     # 9.30 ==> 9h30
+    horario_fecho_fds_manha = models.FloatField(default=9.30)     # 9.30 ==> 9h30
+    horario_abertura_fds_tarde = models.FloatField(default=9.30)     # 9.30 ==> 9h30
+    horario_fecho_fds_tarde = models.FloatField(default=9.30)     # 9.30 ==> 9h30
     cartao_visita_preco = models.FloatField(default=-1.0)
 
     def __str__(self):
