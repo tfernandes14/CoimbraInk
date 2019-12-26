@@ -23,19 +23,19 @@ html {
 }
 
 .background2{
-    background-color: white;
+	background-color: white;
 }
 
 /*Google Map*/
 #map{
-  height: 500px;
-  width: 500px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  	height: 500px;
+  	width: 500px;
+  	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 /*Search*/
 .form-control {
-    font-weight: 300;
+  	font-weight: 300;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -62,22 +62,22 @@ html {
 
 /* width */
 ::-webkit-scrollbar {
-  width: 5px;
+  	width: 5px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  	background: #f1f1f1;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  	background: #888;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  	background: #555;
 }
 
 .list-group-item {
@@ -148,4 +148,12 @@ html {
 
 #counters {
     display: none;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.fas{
+    color: #286895;
 }
