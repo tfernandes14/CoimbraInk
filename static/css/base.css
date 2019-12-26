@@ -1,21 +1,22 @@
 body, html {
-  height: 100%;
+ 	height: 100%;
+  	overflow-x: hidden;
 }
 
 html {
-  scroll-behavior: smooth;
+  	scroll-behavior: smooth;
 }
 
 /* Backgrounds */
 .bg {
-  /* The image used */
-  /* Full height */
-  height: 100%;
-  width: 100%;
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+	/* Full height */
+	height: 100%;
+	width: 100%;
+	/* Center and scale the image nicely */
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	/* The image used */
 }
 
 .background1 {
