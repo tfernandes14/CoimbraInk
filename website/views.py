@@ -7,8 +7,18 @@ import requests
 def home(request):
     reprografias = Reprografia.objects.all()
     todas = get_lat_long()
-    print(todas)
-    return render(request, 'base.html', {'reprografias': reprografias, 'lista': todas})
+    tese = Tese.objects.all()
+    a5 = Acinco.objects.all()
+    a4 = Aquatro.objects.all()
+    a3 = Atres.objects.all()
+    a2 = Adois.objects.all()
+    a1 = Aum.objects.all()
+    a0 = Azero.objects.all()
+
+    return render(request, 'simulador.html', {'reprografias': reprografias,
+                                              'A5': a5, 'A4': a4, 'A3': a3,
+                                              'A2': a2,'A1': a1, 'A0': a0, 'tese' : tese, 'lista': todas})
+
 
 
 def get_lat_long():
@@ -25,21 +35,6 @@ def get_lat_long():
             res.append(aux)
     return res
 
-
-def simulador(request):
-    reprografias = Reprografia.objects.all()
-    todas = get_lat_long()
-    tese = Tese.objects.all()
-    a5 = Acinco.objects.all()
-    a4 = Aquatro.objects.all()
-    a3 = Atres.objects.all()
-    a2 = Adois.objects.all()
-    a1 = Aum.objects.all()
-    a0 = Azero.objects.all()
-
-    return render(request, 'simulador.html', {'reprografias': reprografias,
-                                              'A5': a5, 'A4': a4, 'A3': a3,
-                                              'A2': a2,'A1': a1, 'A0': a0, 'tese' : tese, 'lista': todas})
 
 
 def contas(frente_verso, cores, frente, preto, encadernar, digitalizacao, plastificada, numero_paginas, objeto):

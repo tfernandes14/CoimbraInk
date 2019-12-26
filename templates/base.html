@@ -52,7 +52,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link fss-nav-item waves-effect waves-light active" href="simulador" style="color: #286895;">Simulador</a>
+                            <a class="nav-link fss-nav-item waves-effect waves-light active" href="#simulador" style="color: #286895;">Simulador</a>
                         </li>
                     </ul>
                     <!-- Links -->
@@ -197,64 +197,57 @@
               </div>
           </div>
 
+        <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+              var filter, i=0;
+              filter = $(this).val().toLowerCase();
+              console.log(filter);
+              var list = document.getElementById("myList");
 
+              $.each($('#myList #infor'), function() {
+                  var element = this;
+                  var nome = element.getElementsByTagName("div")[0];
+                  nome = nome.getElementsByTagName("span")[0];
+                  var localizacao = element.getElementsByTagName("div")[10];
+                  localizacao = localizacao.getElementsByTagName("a")[0];
+                  nome = nome.textContent || nome.innerText;
+                  localizacao = localizacao.textContent || localizacao.innerText;
+                  var div = list.getElementsByClassName("list-group-item")[i];
+                  if (nome.toLowerCase().indexOf(filter) > -1 || localizacao.toLowerCase().indexOf(filter)> -1) {
+                      div.style.display = "";
+                  }
+                  else{
+                      div.style.display = "none";
+                  }
+                  i++;
+              });
+            });
+        });
 
-            <div class="col">
-                  <!-- e para o redinho mexer -->
-            {% block background %}
+        $("#orderList").click( function() {
+            $("#myList .list-group-item").detach().sort(function(a, b) {
+               return ($(b).find("#nomeReprografia").text().toUpperCase()) < ($(a).find("#nomeReprografia").text().toUpperCase()) ? 1 : -1;
+            }).appendTo("#myList");
+        });
+
+        $("#orderLocal").click( function() {
+            $("#myList .list-group-item").detach().sort(function(a, b) {
+               return ($(b).find("#localizacaoReprografia").text().toUpperCase()) < ($(a).find("#localizacaoReprografia").text().toUpperCase()) ? 1 : -1;
+            }).appendTo("#myList");
+        });
+
+        $("#scroll-img").click(function() {
+            $('html,body').animate({
+            scrollTop: $("#mapa").offset().top},
+            'slow');
+         });
+        </script>
+        <div id = "simulador">
+            {% block simulador %}
             {% endblock %}
-
-            </div>
-
-
-
-            <script>
-            $(document).ready(function(){
-                $("#myInput").on("keyup", function() {
-                  var filter, i=0;
-                  filter = $(this).val().toLowerCase();
-                  console.log(filter);
-                  var list = document.getElementById("myList");
-
-                  $.each($('#myList #infor'), function() {
-                      var element = this;
-                      var nome = element.getElementsByTagName("div")[0];
-                      nome = nome.getElementsByTagName("span")[0];
-                      var localizacao = element.getElementsByTagName("div")[10];
-                      localizacao = localizacao.getElementsByTagName("a")[0];
-                      nome = nome.textContent || nome.innerText;
-                      localizacao = localizacao.textContent || localizacao.innerText;
-                      var div = list.getElementsByClassName("list-group-item")[i];
-                      if (nome.toLowerCase().indexOf(filter) > -1 || localizacao.toLowerCase().indexOf(filter)> -1) {
-                          div.style.display = "";
-                      }
-                      else{
-                          div.style.display = "none";
-                      }
-                      i++;
-                  });
-                });
-            });
-
-            $("#orderList").click( function() {
-                $("#myList .list-group-item").detach().sort(function(a, b) {
-                   return ($(b).find("#nomeReprografia").text().toUpperCase()) < ($(a).find("#nomeReprografia").text().toUpperCase()) ? 1 : -1;
-                }).appendTo("#myList");
-            });
-
-            $("#orderLocal").click( function() {
-                $("#myList .list-group-item").detach().sort(function(a, b) {
-                   return ($(b).find("#localizacaoReprografia").text().toUpperCase()) < ($(a).find("#localizacaoReprografia").text().toUpperCase()) ? 1 : -1;
-                }).appendTo("#myList");
-            });
-
-            $("#scroll-img").click(function() {
-                $('html,body').animate({
-                scrollTop: $("#mapa").offset().top},
-                'slow');
-             });
-            </script>
         </div>
+    </div>
         <footer class="mt-4" style="background-color: #F4F1F0;">
           <div class="container-fluid py-1">
             <div class="row">
