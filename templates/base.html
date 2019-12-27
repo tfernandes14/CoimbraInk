@@ -135,7 +135,7 @@
                                                          {% for aquatro in A4 %}
                                                              {% ifequal aquatro.reprografia_id rep.id  %}
                                                                 {% ifnotequal aquatro.frente_preto_branco_preco -1 %}
-                                                                    <p class="rep-info2"><b>A4:</b> Preto e Branco: {{aquatro.frente_preto_branco_preco}}€
+                                                                    <p class="rep-info2"><b>A4 Só Frente:</b> Preto e Branco: {{aquatro.frente_preto_branco_preco}}€
                                                                         {% ifnotequal aquatro.frente_cor_preco -1 %}
                                                                             /pagina COR: {{aquatro.frente_cor_preco}}€/pagina</p>
                                                                          {% else %}
@@ -144,75 +144,187 @@
                                                                 {% endifnotequal %}
                                                              {% endifequal %}
                                                          {% endfor %}
-
                                               </div>
                                                   </div>
                                                   <div id="reprografia{{rep.id}}" class="panel-collapse collapse" style="height: 0px;">
                                                     <div class="panel-body">
-                                                        <p class ="rep-info2">Encardenamento: 3,50€</p>
-                                                        {% if rep.webiste != -1 %}
-                                                            <a href= "{{ rep.webiste }}" target="_blank" class ="rep-info2">Website: {{ rep.webiste }}</a>
-                                                        {% endif %}
+                                                        {% for aquatro in A4 %}
+                                                             {% ifequal aquatro.reprografia_id rep.id  %}
+                                                                {% ifnotequal aquatro.frente_verso_preto_branco_preco -1 %}
+                                                                    <p class="rep-info2"><b>A4 Frente & Verso:</b> Preto e Branco: {{aquatro.frente_verso_preto_branco_preco}}€
+                                                                        {% ifnotequal aquatro.frente_verso_cor_preco -1 %}
+                                                                            /pagina COR: {{aquatro.frente_verso_cor_preco}}€/pagina</p>
+                                                                         {% else %}
+                                                                            </p>
+                                                                        {% endifnotequal %}
+                                                                {% endifnotequal %}
+                                                                {% ifnotequal aquatro.encadernacao -1 %}
+                                                                    <p class="rep-info2"><b>A4 Encadernação:</b> {{aquatro.encadernacao}}€</p>
+                                                                {% endifnotequal %}
+                                                                {% ifnotequal aquatro.digitalizacao -1 %}
+                                                                    <p class="rep-info2"><b>A4 Digitalização:</b> {{aquatro.digitalizacao}}€</p>
+                                                                {% endifnotequal %}
+                                                                {% ifnotequal aquatro.plastificacao -1 %}
+                                                                    <p class="rep-info2"><b>A4 Plastificação:</b> {{aquatro.plastificacao}}€</p>
+                                                                {% endifnotequal %}
+                                                             {% endifequal %}
+                                                        {% endfor %}
                                                         {% for acinco in A5 %}
                                                              {% ifequal acinco.reprografia_id rep.id  %}
                                                                 {% ifnotequal acinco.frente_preto_branco_preco -1 %}
-                                                                    <p class="rep-info2"><b>A5:</b> Preto e Branco: {{acinco.frente_preto_branco_preco}}€
+                                                                    <p class="rep-info2"><b>A5 Só Frente:</b> Preto e Branco: {{acinco.frente_preto_branco_preco}}€
                                                                         {% ifnotequal acinco.frente_cor_preco -1 %}
                                                                             /pagina COR: {{acinco.frente_cor_preco}}€/pagina</p>
                                                                          {% else %}
                                                                             </p>
                                                                         {% endifnotequal %}
                                                                 {% endifnotequal %}
+                                                                {% ifnotequal acinco.frente_verso_preto_branco_preco -1 %}
+                                                                    <p class="rep-info2"><b>A5 Frente & Verso:</b> Preto e Branco: {{acinco.frente_verso_preto_branco_preco}}€
+                                                                        {% ifnotequal acinco.frente_verso_cor_preco -1 %}
+                                                                            /pagina COR: {{acinco.frente_verso_cor_preco}}€/pagina</p>
+                                                                         {% else %}
+                                                                            </p>
+                                                                        {% endifnotequal %}
+                                                                {% endifnotequal %}
+                                                                {% ifnotequal acinco.encadernacao -1 %}
+                                                                    <p class="rep-info2"><b>A5 Encadernação:</b> {{acinco.encadernacao}}€</p>
+                                                                {% endifnotequal %}
+                                                                {% ifnotequal acinco.digitalizacao -1 %}
+                                                                    <p class="rep-info2"><b>A5 Digitalização:</b> {{acinco.digitalizacao}}€</p>
+                                                                {% endifnotequal %}
+                                                                {% ifnotequal acinco.plastificacao -1 %}
+                                                                    <p class="rep-info2"><b>A5 Plastificação:</b> {{acinco.plastificacao}}€</p>
+                                                                {% endifnotequal %}
                                                              {% endifequal %}
                                                         {% endfor %}
                                                         {% for atres in A3 %}
                                                              {% ifequal atres.reprografia_id rep.id  %}
                                                                 {% ifnotequal atres.frente_preto_branco_preco -1 %}
-                                                                    <p class="rep-info2"><b>A3:</b> Preto e Branco: {{atres.frente_preto_branco_preco}}€
+                                                                    <p class="rep-info2"><b>A3 Só Frente:</b> Preto e Branco: {{atres.frente_preto_branco_preco}}€
                                                                         {% ifnotequal atres.frente_cor_preco -1 %}
                                                                             /pagina COR: {{atres.frente_cor_preco}}€/pagina</p>
                                                                          {% else %}
                                                                             </p>
                                                                         {% endifnotequal %}
                                                                 {% endifnotequal %}
+                                                                {% ifnotequal atres.frente_verso_preto_branco_preco -1 %}
+                                                                    <p class="rep-info2"><b>A3 Frente & Verso:</b> Preto e Branco: {{atres.frente_verso_preto_branco_preco}}€
+                                                                        {% ifnotequal atres.frente_verso_cor_preco -1 %}
+                                                                            /pagina COR: {{atres.frente_verso_cor_preco}}€/pagina</p>
+                                                                         {% else %}
+                                                                            </p>
+                                                                        {% endifnotequal %}
+                                                                {% endifnotequal %}
+                                                                {% ifnotequal atres.encadernacao -1 %}
+                                                                    <p class="rep-info2"><b>A3 Encadernação:</b> {{atres.encadernacao}}€</p>
+                                                                {% endifnotequal %}
+                                                                {% ifnotequal atres.digitalizacao -1 %}
+                                                                    <p class="rep-info2"><b>A3 Digitalização:</b> {{atres.digitalizacao}}€</p>
+                                                                {% endifnotequal %}
+                                                                {% ifnotequal atres.plastificacao -1 %}
+                                                                    <p class="rep-info2"><b>A3 Plastificação:</b> {{atres.plastificacao}}€</p>
+                                                                {% endifnotequal %}
                                                              {% endifequal %}
                                                          {% endfor %}
                                                          {% for adois in A2 %}
                                                              {% ifequal adois.reprografia_id rep.id  %}
                                                                 {% ifnotequal adois.frente_preto_branco_preco -1 %}
-                                                                    <p class="rep-info2"><b>A2:</b> Preto e Branco: {{adois.frente_preto_branco_preco}}€
+                                                                    <p class="rep-info2"><b>A2 Só Frente:</b> Preto e Branco: {{adois.frente_preto_branco_preco}}€
                                                                         {% ifnotequal adois.frente_cor_preco -1 %}
                                                                             /pagina COR: {{adois.frente_cor_preco}}€/pagina</p>
                                                                          {% else %}
                                                                             </p>
                                                                         {% endifnotequal %}
                                                                 {% endifnotequal %}
+                                                                {% ifnotequal adois.frente_verso_preto_branco_preco -1 %}
+                                                                    <p class="rep-info2"><b>A2 Frente & Verso:</b> Preto e Branco: {{adois.frente_verso_preto_branco_preco}}€
+                                                                        {% ifnotequal adois.frente_verso_cor_preco -1 %}
+                                                                            /pagina COR: {{adois.frente_verso_cor_preco}}€/pagina</p>
+                                                                         {% else %}
+                                                                            </p>
+                                                                        {% endifnotequal %}
+                                                                {% endifnotequal %}
+                                                                {% ifnotequal adois.encadernacao -1 %}
+                                                                    <p class="rep-info2"><b>A2 Encadernação:</b> {{adois.encadernacao}}€</p>
+                                                                {% endifnotequal %}
+                                                                {% ifnotequal adois.digitalizacao -1 %}
+                                                                    <p class="rep-info2"><b>A2 Digitalização:</b> {{adois.digitalizacao}}€</p>
+                                                                {% endifnotequal %}
+                                                                {% ifnotequal adois.plastificacao -1 %}
+                                                                    <p class="rep-info2"><b>A2 Plastificação:</b> {{adois.plastificacao}}€</p>
+                                                                {% endifnotequal %}
                                                              {% endifequal %}
                                                          {% endfor %}
                                                          {% for aum in A1 %}
                                                              {% ifequal aum.reprografia_id rep.id  %}
                                                                 {% ifnotequal aum.frente_preto_branco_preco -1 %}
-                                                                    <p class="rep-info2"><b>A1:</b> Preto e Branco: {{aum.frente_preto_branco_preco}}€
+                                                                    <p class="rep-info2"><b>A1 Só Frente:</b> Preto e Branco: {{aum.frente_preto_branco_preco}}€
                                                                         {% ifnotequal aum.frente_cor_preco -1 %}
                                                                             /pagina COR: {{aum.frente_cor_preco}}€/pagina</p>
                                                                          {% else %}
                                                                             </p>
                                                                         {% endifnotequal %}
                                                                 {% endifnotequal %}
+                                                                {% ifnotequal aum.frente_verso_preto_branco_preco -1 %}
+                                                                    <p class="rep-info2"><b>A1 Frente & Verso:</b> Preto e Branco: {{aum.frente_verso_preto_branco_preco}}€
+                                                                        {% ifnotequal aum.frente_verso_cor_preco -1 %}
+                                                                            /pagina COR: {{aum.frente_verso_cor_preco}}€/pagina</p>
+                                                                         {% else %}
+                                                                            </p>
+                                                                        {% endifnotequal %}
+                                                                {% endifnotequal %}
+                                                                {% ifnotequal aum.encadernacao -1 %}
+                                                                    <p class="rep-info2"><b>A1 Encadernação:</b> {{aum.encadernacao}}€</p>
+                                                                {% endifnotequal %}
+                                                                {% ifnotequal aum.digitalizacao -1 %}
+                                                                    <p class="rep-info2"><b>A1 Digitalização:</b> {{aum.digitalizacao}}€</p>
+                                                                {% endifnotequal %}
+                                                                {% ifnotequal aum.plastificacao -1 %}
+                                                                    <p class="rep-info2"><b>A1 Plastificação:</b> {{aum.plastificacao}}€</p>
+                                                                {% endifnotequal %}
                                                              {% endifequal %}
                                                          {% endfor %}
                                                          {% for azero in A0 %}
                                                              {% ifequal azero.reprografia_id rep.id  %}
                                                                 {% ifnotequal azero.frente_preto_branco_preco -1 %}
-                                                                    <p class="rep-info2"><b>A0:</b> Preto e Branco: {{azero.frente_preto_branco_preco}}€
+                                                                    <p class="rep-info2"><b>A0 Só Frente:</b> Preto e Branco: {{azero.frente_preto_branco_preco}}€
                                                                         {% ifnotequal azero.frente_cor_preco -1 %}
                                                                             /pagina COR: {{azero.frente_cor_preco}}€/pagina</p>
                                                                          {% else %}
                                                                             </p>
                                                                         {% endifnotequal %}
+                                                                {% ifnotequal azero.frente_verso_preto_branco_preco -1 %}
+                                                                    <p class="rep-info2"><b>A0 Frente & Verso:</b> Preto e Branco: {{azero.frente_verso_preto_branco_preco}}€
+                                                                        {% ifnotequal azero.frente_verso_cor_preco -1 %}
+                                                                            /pagina COR: {{azero.frente_verso_cor_preco}}€/pagina</p>
+                                                                         {% else %}
+                                                                            </p>
+                                                                        {% endifnotequal %}
+                                                                {% endifnotequal %}
+                                                                {% ifnotequal azero.encadernacao -1 %}
+                                                                    <p class="rep-info2"><b>A0 Encadernação:</b> {{azero.encadernacao}}€</p>
+                                                                {% endifnotequal %}
+                                                                {% ifnotequal azero.digitalizacao -1 %}
+                                                                    <p class="rep-info2"><b>A0 Digitalização:</b> {{azero.digitalizacao}}€</p>
+                                                                {% endifnotequal %}
+                                                                {% ifnotequal azero.plastificacao -1 %}
+                                                                    <p class="rep-info2"><b>A0 Plastificação:</b> {{azero.plastificacao}}€</p>
+                                                                {% endifnotequal %}
                                                                 {% endifnotequal %}
                                                              {% endifequal %}
                                                          {% endfor %}
+                                                        {% ifnotequal rep.webiste "-1" %}
+                                                            <a href= "http://{{ rep.webiste }}" target="_blank" class ="rep-info2">Website: {{ rep.webiste }}</a>
+                                                        {% endifnotequal %}
+                                                        {% ifnotequal rep.contacto -1 %}
+                                                            <p class="rep-info2">Contacto: {{rep.contacto}}</p>
+                                                        {% endifnotequal %}
+                                                        {% ifnotequal rep.email "-1" %}
+                                                            <p class="rep-info2">Email: {{rep.email}}</p>
+                                                        {% endifnotequal %}
+{#                                                        Depois ver isto do rating#}
+{#                                                        <p class="rep-info2">Rating: {{rep.rating_medio}}</p>#}
                                                     </div>
                                                   </div>
                                             </div>
