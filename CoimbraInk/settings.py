@@ -77,8 +77,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'CoimbraInk',
-        'USER': 'postgres',
-        'PASSWORD': '123456',
+        'USER': 'admin',
+        'PASSWORD': 'admin',
         'HOST': 'localhost'
     }
 }
