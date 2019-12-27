@@ -99,7 +99,7 @@
                                       <ul class="list-group" id="myList">
                                           {% for rep in reprografias %}
                                               <div class="panel panel-default list-group-item mb-2">
-                                                  <div class="panel-heading accordion-toggle question-toggle collapsed" data-toggle="collapse" data-parent="#myList" data-target="#{{rep.nome}}">
+                                                  <div class="panel-heading accordion-toggle question-toggle collapsed" data-toggle="collapse" data-parent="#myList" data-target="#reprografia{{rep.id}}">
                                                       <div class="panel-title">
                                                           <div class="row" id="infor">
                                                               <div class="col-md-4">
@@ -147,7 +147,7 @@
 
                                               </div>
                                                   </div>
-                                                  <div id="{{rep.nome}}" class="panel-collapse collapse" style="height: 0px;">
+                                                  <div id="reprografia{{rep.id}}" class="panel-collapse collapse" style="height: 0px;">
                                                     <div class="panel-body">
                                                         <p class ="rep-info2">Encardenamento: 3,50€</p>
                                                         {% if rep.webiste != -1 %}
