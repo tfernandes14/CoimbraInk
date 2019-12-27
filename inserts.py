@@ -10,7 +10,7 @@ with open('Reprografias.csv', encoding='utf8') as csv_file:
     for row in csv_reader:
         if line_count == 0:
             line_count += 1
-        elif line_count < 19:
+        else:
             valores.clear()
             for k in range(16):
                 valores.append(row[k])

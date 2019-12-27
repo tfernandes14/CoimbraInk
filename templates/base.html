@@ -125,20 +125,94 @@
                                                                  <div class="row">
                                                                     <img class="pin-img" src="/static/imagens/pin.png">
                                                                      <div class="col-ml-2"></div>
-                                                                     <a  class="rep-info1" id="localizacaoReprografia">Celas</a>
+                                                                     <a  class="rep-info1" id="localizacaoReprografia">{{rep.zona}}</a>
                                                                  </div>
                                                                  <div class="row"></div>
                                                              </div>
                                                          </div>
                                                      </div>
                                                      <div class="panel-body">
-                                                         <p class="rep-info2">Preto e Branco: 0.05€/pagina COR: 0.10€/pagina</p>
-                                                     </div>
+                                                         {% for aquatro in A4 %}
+                                                             {% ifequal aquatro.reprografia_id rep.id  %}
+                                                                {% ifnotequal aquatro.frente_preto_branco_preco -1 %}
+                                                                    <p class="rep-info2"><b>A4:</b> Preto e Branco: {{aquatro.frente_preto_branco_preco}}€
+                                                                        {% ifnotequal aquatro.frente_cor_preco -1 %}
+                                                                            /pagina COR: {{aquatro.frente_cor_preco}}€/pagina</p>
+                                                                         {% else %}
+                                                                            </p>
+                                                                        {% endifnotequal %}
+                                                                {% endifnotequal %}
+                                                             {% endifequal %}
+                                                         {% endfor %}
+
+                                              </div>
                                                   </div>
                                                   <div id="{{rep.nome}}" class="panel-collapse collapse" style="height: 0px;">
                                                     <div class="panel-body">
                                                         <p class ="rep-info2">Encardenamento: 3,50€</p>
-                                                        <p class ="rep-info2">Website: www.sdfafdsaf.com</p>
+                                                        {% if rep.webiste != -1 %}
+                                                            <a href= "{{ rep.webiste }}" target="_blank" class ="rep-info2">Website: {{ rep.webiste }}</a>
+                                                        {% endif %}
+                                                        {% for acinco in A5 %}
+                                                             {% ifequal acinco.reprografia_id rep.id  %}
+                                                                {% ifnotequal acinco.frente_preto_branco_preco -1 %}
+                                                                    <p class="rep-info2"><b>A5:</b> Preto e Branco: {{acinco.frente_preto_branco_preco}}€
+                                                                        {% ifnotequal acinco.frente_cor_preco -1 %}
+                                                                            /pagina COR: {{acinco.frente_cor_preco}}€/pagina</p>
+                                                                         {% else %}
+                                                                            </p>
+                                                                        {% endifnotequal %}
+                                                                {% endifnotequal %}
+                                                             {% endifequal %}
+                                                        {% endfor %}
+                                                        {% for atres in A3 %}
+                                                             {% ifequal atres.reprografia_id rep.id  %}
+                                                                {% ifnotequal atres.frente_preto_branco_preco -1 %}
+                                                                    <p class="rep-info2"><b>A3:</b> Preto e Branco: {{atres.frente_preto_branco_preco}}€
+                                                                        {% ifnotequal atres.frente_cor_preco -1 %}
+                                                                            /pagina COR: {{atres.frente_cor_preco}}€/pagina</p>
+                                                                         {% else %}
+                                                                            </p>
+                                                                        {% endifnotequal %}
+                                                                {% endifnotequal %}
+                                                             {% endifequal %}
+                                                         {% endfor %}
+                                                         {% for adois in A2 %}
+                                                             {% ifequal adois.reprografia_id rep.id  %}
+                                                                {% ifnotequal adois.frente_preto_branco_preco -1 %}
+                                                                    <p class="rep-info2"><b>A2:</b> Preto e Branco: {{adois.frente_preto_branco_preco}}€
+                                                                        {% ifnotequal adois.frente_cor_preco -1 %}
+                                                                            /pagina COR: {{adois.frente_cor_preco}}€/pagina</p>
+                                                                         {% else %}
+                                                                            </p>
+                                                                        {% endifnotequal %}
+                                                                {% endifnotequal %}
+                                                             {% endifequal %}
+                                                         {% endfor %}
+                                                         {% for aum in A1 %}
+                                                             {% ifequal aum.reprografia_id rep.id  %}
+                                                                {% ifnotequal aum.frente_preto_branco_preco -1 %}
+                                                                    <p class="rep-info2"><b>A1:</b> Preto e Branco: {{aum.frente_preto_branco_preco}}€
+                                                                        {% ifnotequal aum.frente_cor_preco -1 %}
+                                                                            /pagina COR: {{aum.frente_cor_preco}}€/pagina</p>
+                                                                         {% else %}
+                                                                            </p>
+                                                                        {% endifnotequal %}
+                                                                {% endifnotequal %}
+                                                             {% endifequal %}
+                                                         {% endfor %}
+                                                         {% for azero in A0 %}
+                                                             {% ifequal azero.reprografia_id rep.id  %}
+                                                                {% ifnotequal azero.frente_preto_branco_preco -1 %}
+                                                                    <p class="rep-info2"><b>A0:</b> Preto e Branco: {{azero.frente_preto_branco_preco}}€
+                                                                        {% ifnotequal azero.frente_cor_preco -1 %}
+                                                                            /pagina COR: {{azero.frente_cor_preco}}€/pagina</p>
+                                                                         {% else %}
+                                                                            </p>
+                                                                        {% endifnotequal %}
+                                                                {% endifnotequal %}
+                                                             {% endifequal %}
+                                                         {% endfor %}
                                                     </div>
                                                   </div>
                                             </div>
