@@ -77,8 +77,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'CoimbraInk',
-        'USER': 'admin',
-        'PASSWORD': 'admin',
+        'USER': 'postgres',
+        'PASSWORD': '123456',
         'HOST': 'localhost'
     }
 }
@@ -126,5 +126,5 @@ STATICFILES_DIRS = [
 ]
 #STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 
-#MEDIA_URL = '/media/'
-#MEDIA_ROOT = os.path.join(BASE_DIR,"media"
+MEDIA_URL = '/file/'
+MEDIA_ROOT = os.path.join(BASE_DIR,"static/file")
