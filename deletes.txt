@@ -1,0 +1,7 @@
+DELETE FROM public.website_acinco WHERE reprografia_id<200;
+DELETE FROM public.website_aquatro WHERE reprografia_id<200;
+DELETE FROM public.website_atres WHERE reprografia_id<200;
+DELETE FROM public.website_adois WHERE reprografia_id<200;
+DELETE FROM public.website_aum WHERE reprografia_id<200;
+DELETE FROM public.website_azero WHERE reprografia_id<200;
+DELETE FROM public.website_reprografia WHERE id<200;
