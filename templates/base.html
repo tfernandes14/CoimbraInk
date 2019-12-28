@@ -115,7 +115,11 @@
                                                                      </div>
                                                                      <div class="col">
                                                                          <div class="row">
+                                                                             {% ifequal rep.horario_abertura_semana_manha -1 %}
+                                                                                <a class="rep-info1">Horário Não Disponível</a>
+                                                                             {% else %}
                                                                              <a  class="rep-info1">{{rep.horario_abertura_semana_manha}}h-{{rep.horario_fecho_semana_tarde}}h</a>
+                                                                             {% endifequal %}
                                                                          </div>
                                                                      </div>
                                                                  </div>
@@ -148,6 +152,22 @@
                                                   </div>
                                                   <div id="reprografia{{rep.id}}" class="panel-collapse collapse" style="height: 0px;">
                                                     <div class="panel-body">
+{#                                                        Se nem sequer abrir de manha#}
+                                                        {% ifequal rep.horario_abertura_fds_manha -1 %}
+                                                            <p class="rep-info2"><b>Fim De Semana: </b>Fechado</p>
+                                                        {% else %}
+{#                                                            Se abrir de manha vamos entao ver se fecha para almoco#}
+                                                            {% ifequal rep.horario_fecho_fds_manha -1 %}
+                                                                <p class="rep-info2"><b>Fim De Semana: </b>{{rep.horario_abertura_fds_manha}}h - {{rep.horario_fecho_fds_tarde}}h</p>
+                                                            {% else%}
+{#                                                                Se fechar para almoco vamos ver se volta a abrir de tarde#}
+                                                                {% ifnotequal rep.horario_abertura_fds_tarde -1 %}
+                                                                    <p class="rep-info2"><b>Fim De Semana: </b>{{rep.horario_abertura_fds_manha}}h - {{rep.horario_fecho_fds_manha}}h, {{rep.horario_abertura_fds_tarde}}h-{{rep.horario_fecho_fds_tarde}}h</p>
+                                                                {% else %}
+                                                                    <p class="rep-info2"><b>Fim De Semana: </b>{{rep.horario_abertura_fds_manha}}h - {{rep.horario_fecho_fds_manha}}h <b>Tarde:</b> Fechado</p>
+                                                                {% endifnotequal %}
+                                                            {% endifequal %}
+                                                        {% endifequal %}
                                                         {% for aquatro in A4 %}
                                                              {% ifequal aquatro.reprografia_id rep.id  %}
                                                                 {% ifnotequal aquatro.frente_verso_preto_branco_preco -1 %}
@@ -419,7 +439,7 @@
 
         $("#orderLocal").click( function() {
             $("#myList .list-group-item").detach().sort(function(a, b) {
-               return ($(b).find("#localizacaoReprografia").text().toUpperCase())   ($(a).find("#localizacaoReprografia").text().toUpperCase()) ? 1 : -1;
+               return ($(b).find("#localizacaoReprografia").text().toUpperCase()) < ($(a).find("#localizacaoReprografia").text().toUpperCase()) ? 1 : -1;
             }).appendTo("#myList");
         });
 
