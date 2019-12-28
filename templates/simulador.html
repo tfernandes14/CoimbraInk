@@ -9,7 +9,7 @@
 			<div class="table-wrapper-scroll-y my-custom-scrollbar mt-2" style="background: #F4F1F0;border-radius:10px;height: 415px;">
                 <ul class="list-group" id="myRep">
                     {% for repo in reprografias %}
-                        <div class=" list-group-item mb-2 " id="reprografia" data-param1="{{repo.nome}}" data-param2="{{repo.contacto}}" style="border-radius:10px;">
+                        <div class=" list-group-item mb-2 " id="reprografia" data-param1="{{repo.nome}}" data-param2="{{repo.contacto}}" data-param3="{{A5}}" style="border-radius:10px;">
                             <span class="rep-name">{{repo.nome}} </span>
                         </div>
                     {% endfor %}
@@ -152,10 +152,14 @@
          var $div = $(this);
         var param1 = $div.attr('data-param1');
         var param2 = $div.attr('data-param2');
+        var param3 = $div.attr('data-param3');
 
         $('.nomeselecionado').text(param1);
         console.log(param1);
         console.log(param2);
+        console.log(param3)
+
+        
      });
     </script>
 {% endblock %}
