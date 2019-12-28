@@ -115,7 +115,11 @@
                                                                      </div>
                                                                      <div class="col">
                                                                          <div class="row">
+                                                                             {% ifequal rep.horario_abertura_semana_manha -1 %}
+                                                                                <a class="rep-info1">Horário Não Disponível</a>
+                                                                             {% else %}
                                                                              <a  class="rep-info1">{{rep.horario_abertura_semana_manha}}h-{{rep.horario_fecho_semana_tarde}}h</a>
+                                                                             {% endifequal %}
                                                                          </div>
                                                                      </div>
                                                                  </div>
@@ -419,7 +423,7 @@
 
         $("#orderLocal").click( function() {
             $("#myList .list-group-item").detach().sort(function(a, b) {
-               return ($(b).find("#localizacaoReprografia").text().toUpperCase())   ($(a).find("#localizacaoReprografia").text().toUpperCase()) ? 1 : -1;
+               return ($(b).find("#localizacaoReprografia").text().toUpperCase()) < ($(a).find("#localizacaoReprografia").text().toUpperCase()) ? 1 : -1;
             }).appendTo("#myList");
         });
 

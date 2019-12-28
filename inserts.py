@@ -1,5 +1,30 @@
 import csv
 
+# #Vamos primeiro abrir o reprografias.csv e substituir as virgulas por pontos:
+#
+# with open('Reprografias.csv', encoding='utf8') as csv_file:
+#     csv_reader_subs = csv.reader(csv_file, delimiter=';')
+#     list = []
+#
+#     for row in csv_reader_subs:
+#         print(row)
+#         string_base = ''
+#         for a in row:
+#             if ',' in a:
+#                 a = a.replace(",", ".")
+#                 #print(a)
+#             string_base += a
+#         list.append(string_base)
+#     for row2 in list:
+#         print(row2)
+# # with open('Reprografias.csv', encoding='utf8') as cs_file:
+# #     csv_writer = csv.writer(csv_file, delimiter=';')
+#  #   for row in list:
+#        # print(row)
+
+
+
+
 with open('Reprografias.csv', encoding='utf8') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=';')
     line_count = 0
