@@ -90,7 +90,7 @@
                                                         </div>
                                                     </div>
                                                     <a id="orderLocal" style="margin-left: 20px; cursor: pointer;">Local</a>
-                                                    <a style="margin-left: 20px;">€</a>
+                                                    <a id="orderPrice" style="margin-left: 20px; ; cursor: pointer;">€</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -125,7 +125,7 @@
                                                                  <div class="row">
                                                                     <img class="pin-img" src="/static/imagens/pin.png">
                                                                      <div class="col-ml-2"></div>
-                                                                     <a  class="rep-info1" id="localizacaoReprografia">{{rep.zona}}</a>
+                                                                     <a class="rep-info1" id="localizacaoReprografia">{{rep.zona}}</a>
                                                                  </div>
                                                                  <div class="row"></div>
                                                              </div>
@@ -135,7 +135,7 @@
                                                          {% for aquatro in A4 %}
                                                              {% ifequal aquatro.reprografia_id rep.id  %}
                                                                 {% ifnotequal aquatro.frente_preto_branco_preco -1 %}
-                                                                    <p class="rep-info2"><b>A4 Só Frente:</b> Preto e Branco: {{aquatro.frente_preto_branco_preco}}€
+                                                                    <p class="rep-info2" id="precoA4" ><b>A4 Só Frente:</b> Preto e Branco: {{aquatro.frente_preto_branco_preco}}€
                                                                         {% ifnotequal aquatro.frente_cor_preco -1 %}
                                                                             /pagina COR: {{aquatro.frente_cor_preco}}€/pagina</p>
                                                                          {% else %}
@@ -419,7 +419,13 @@
 
         $("#orderLocal").click( function() {
             $("#myList .list-group-item").detach().sort(function(a, b) {
-               return ($(b).find("#localizacaoReprografia").text().toUpperCase()) < ($(a).find("#localizacaoReprografia").text().toUpperCase()) ? 1 : -1;
+               return ($(b).find("#localizacaoReprografia").text().toUpperCase())   ($(a).find("#localizacaoReprografia").text().toUpperCase()) ? 1 : -1;
+            }).appendTo("#myList");
+        });
+
+         $("#orderPrice").click( function() {
+            $("#myList .list-group-item").detach().sort(function(a, b) {
+               return ($(b).find("#precoA4").text().toUpperCase()) < ($(a).find("#precoA4").text().toUpperCase()) ? 1 : -1;
             }).appendTo("#myList");
         });
 
