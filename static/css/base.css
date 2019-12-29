@@ -23,9 +23,18 @@ html {
     background-image: url('../imagens/background.png');
 }
 
+@media only screen and (max-width: 767px) {
+  .background1 {
+    background-image: none;
+       background: #F4F1F0;
+    }
+}
+
 .background2{
 	background-color: white;
 }
+
+
 
 /*Google Map*/
 #map{
