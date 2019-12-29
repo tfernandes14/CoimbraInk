@@ -43,6 +43,48 @@ html {
   	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+@media only screen and (max-width: 530px) {
+ #map {
+     height: 475px;
+     width: 475px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+ #map {
+     height: 430px;
+     width: 430px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+ #map {
+     height: 390px;
+     width: 390px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+ #map {
+     height: 350px;
+     width: 350px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+ #map {
+     height: 320px;
+     width: 320px;
+  }
+}
+
+@media only screen and (max-width: 340px) {
+ #map {
+     height: 280px;
+     width: 280px;
+  }
+}
+
 /*Search*/
 .form-control {
   	font-weight: 300;
@@ -107,6 +149,7 @@ html {
     font-size: 18px;
 }
 
+
 .clock-img {
     width: 75%;
     height: 75%;
@@ -120,6 +163,60 @@ html {
 .rep-info2 {
     font-size: 15px;
     font-weight: 300;
+}
+
+@media only screen and (max-width: 730px) {
+  .clock-img {
+    margin-left: 35%;
+    width: 67%;
+    height: 67%;
+  }
+  .pin-img {
+    width: 17%;
+    height: 17%;
+  }
+
+}
+@media only screen and (max-width: 650px) {
+  .rep-name {
+    font-size: 21px;
+  }
+  .rep-info1 {
+    font-size: 17px;
+  }
+  .rep-info2{
+    font-size: 14px;
+  }
+  .clock-img {
+    margin-left: 35%;
+    width: 65%;
+    height: 65%;
+  }
+  .pin-img {
+    width: 15%;
+    height: 15%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .rep-name {
+    font-size: 20px;
+  }
+  .rep-info1 {
+    font-size: 16px;
+  }
+  .rep-info2{
+    font-size: 13px;
+  }
+  .clock-img {
+    margin-left: 35%;
+    width: 60%;
+    height: 60%;
+  }
+  .pin-img {
+    width: 12%;
+    height: 12%;
+  }
 }
 
 /*If you use .navbar with .smooth-scroll, use this code to avoid overlapping navigation to a header.*/
