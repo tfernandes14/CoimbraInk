@@ -39,6 +39,12 @@ class Acinco(models.Model):
     digitalizacao = models.FloatField(default=-1.0)
     plastificacao = models.FloatField(default=-1.0)
 
+    def serialize(self):
+        return {"frente_cor_preco": self.frente_cor_preco,
+                "frente_preto_branco_preco": self.frente_preto_branco_preco,
+                "frente_verso_cor_preco": self.frente_verso_cor_preco,"frente_verso_preto_branco_preco": self.frente_verso_preto_branco_preco,
+                "encadernacao": self.encadernacao, "digitalizacao": self.digitalizacao, "plastificacao": self.plastificacao}
+
 
 class Aquatro(models.Model):
     reprografia = models.OneToOneField(
@@ -53,6 +59,12 @@ class Aquatro(models.Model):
     encadernacao = models.FloatField(default=-1.0)
     digitalizacao = models.FloatField(default=-1.0)
     plastificacao = models.FloatField(default=-1.0)
+
+    def serialize(self):
+        return {"frente_cor_preco": self.frente_cor_preco,
+                "frente_preto_branco_preco": self.frente_preto_branco_preco,
+                "frente_verso_cor_preco": self.frente_verso_cor_preco,"frente_verso_preto_branco_preco": self.frente_verso_preto_branco_preco,
+                "encadernacao": self.encadernacao, "digitalizacao": self.digitalizacao, "plastificacao": self.plastificacao}
 
 
 class Atres(models.Model):
@@ -69,6 +81,12 @@ class Atres(models.Model):
     digitalizacao = models.FloatField(default=-1.0)
     plastificacao = models.FloatField(default=-1.0)
 
+    def serialize(self):
+        return {"frente_cor_preco": self.frente_cor_preco,
+                "frente_preto_branco_preco": self.frente_preto_branco_preco,
+                "frente_verso_cor_preco": self.frente_verso_cor_preco,"frente_verso_preto_branco_preco": self.frente_verso_preto_branco_preco,
+                "encadernacao": self.encadernacao, "digitalizacao": self.digitalizacao, "plastificacao": self.plastificacao}
+
 
 class Adois(models.Model):
     reprografia = models.OneToOneField(
@@ -83,6 +101,12 @@ class Adois(models.Model):
     encadernacao = models.FloatField(default=-1.0)
     digitalizacao = models.FloatField(default=-1.0)
     plastificacao = models.FloatField(default=-1.0)
+
+    def serialize(self):
+        return {"frente_cor_preco": self.frente_cor_preco,
+                "frente_preto_branco_preco": self.frente_preto_branco_preco,
+                "frente_verso_cor_preco": self.frente_verso_cor_preco,"frente_verso_preto_branco_preco": self.frente_verso_preto_branco_preco,
+                "encadernacao": self.encadernacao, "digitalizacao": self.digitalizacao, "plastificacao": self.plastificacao}
 
 
 class Aum(models.Model):
@@ -100,6 +124,13 @@ class Aum(models.Model):
     plastificacao = models.FloatField(default=-1.0)
 
 
+    def serialize(self):
+        return {"frente_cor_preco": self.frente_cor_preco,
+                "frente_preto_branco_preco": self.frente_preto_branco_preco,
+                "frente_verso_cor_preco": self.frente_verso_cor_preco,"frente_verso_preto_branco_preco": self.frente_verso_preto_branco_preco,
+                "encadernacao": self.encadernacao, "digitalizacao": self.digitalizacao, "plastificacao": self.plastificacao}
+
+
 class Azero(models.Model):
     reprografia = models.OneToOneField(
         Reprografia,
@@ -113,6 +144,12 @@ class Azero(models.Model):
     encadernacao = models.FloatField(default=-1.0)
     digitalizacao = models.FloatField(default=-1.0)
     plastificacao = models.FloatField(default=-1.0)
+
+    def serialize(self):
+        return {"frente_cor_preco": self.frente_cor_preco,
+                "frente_preto_branco_preco": self.frente_preto_branco_preco,
+                "frente_verso_cor_preco": self.frente_verso_cor_preco,"frente_verso_preto_branco_preco": self.frente_verso_preto_branco_preco,
+                "encadernacao": self.encadernacao, "digitalizacao": self.digitalizacao, "plastificacao": self.plastificacao}
 
 
 class Tese(models.Model):
