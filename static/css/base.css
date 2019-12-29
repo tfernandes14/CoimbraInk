@@ -34,7 +34,9 @@ html {
 	background-color: white;
 }
 
-
+.nav {
+    background: #F4F1F0;
+}
 
 /*Google Map*/
 #map{
