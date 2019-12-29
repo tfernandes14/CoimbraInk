@@ -3,6 +3,8 @@ from django.core.exceptions import ObjectDoesNotExist
 from .models import *
 import requests
 from django.core.files.storage import FileSystemStorage
+from django.http import JsonResponse
+import json
 
 def home(request):
     reprografias = Reprografia.objects.all()
@@ -38,6 +40,52 @@ def home(request):
     return render(request, 'simulador.html', {'reprografias': reprografias,
                                               'A5': a5, 'A4': a4, 'A3': a3,
                                               'A2': a2,'A1': a1, 'A0': a0, 'tese' : tese, 'lista': todas,'ficheiros':ficheiros})
+
+
+def simulador(request,pk):
+    reprografia = Reprografia.objects.get(pk=pk)
+    a5_res = Acinco.objects.get(reprografia=reprografia)
+    a4_res = Aquatro.objects.get(reprografia=reprografia)
+    a3_res = Atres.objects.get(reprografia=reprografia)
+    a2_res = Adois.objects.get(reprografia=reprografia)
+    a1_res = Aum.objects.get(reprografia=reprografia)
+    a0_res = Azero.objects.get(reprografia=reprografia)
+    
+    resultado_5 = a5_res.serialize()
+    resultado_4 = a4_res.serialize()
+    resultado_3 = a3_res.serialize()
+    resultado_2 = a2_res.serialize()
+    resultado_1 = a1_res.serialize()
+    resultado_0 = a0_res.serialize()
+
+    resultado = [resultado_5, resultado_4, resultado_3, resultado_2, resultado_1, resultado_0]
+    
+    return JsonResponse(resultado, safe=False)
+
+
+def busca_pagina(request,pk,choice):
+    reprografia = Reprografia.objects.get(pk=pk)
+
+    
+    if(choice=="Azero"):
+        objeto = Azero.objects.get(reprografia=reprografia).serialize()
+    elif(choice=="Aum"):
+        objeto = Aum.objects.get(reprografia=reprografia).serialize()
+    elif(choice=="Adois"):
+        objeto = Adois.objects.get(reprografia=reprografia).serialize()
+    elif(choice=="Atres"):
+        objeto = Atres.objects.get(reprografia=reprografia).serialize()
+    elif(choice=="Aquatro"):
+        objeto = Aquatro.objects.get(reprografia=reprografia).serialize()
+    elif(choice=="Acinco"):
+        objeto = Acinco.objects.get(reprografia=reprografia).serialize()
+    
+    return JsonResponse(objeto, safe=False)
+
+
+
+
+
 
 
 def get_lat_long():
