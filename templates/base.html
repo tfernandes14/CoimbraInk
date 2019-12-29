@@ -69,21 +69,19 @@
         </div>
         <div class="bg background2">
               <div id="mapa">
-                <div class="parent-container d-flex">
-                  <div class="container">
+                      <div class="container">
                       <div class="row mt-5 mb-5"></div>
                       <div class="row mt-5">
-                          <div class="col-md-2"></div>
-                          <div class="col-md-10">
+                          <div class="col-12 col-sm-12 col-md-6">
                               <div class="container">
                                     <div class="row">
-                                        <div class="col-md-7">
+                                        <div class="col-12 col-sm-12 col-md-7">
                                             <input  class="form-control" id="myInput" type="text" placeholder="Search location.." style="background: #F4F1F0;">
                                         </div>
-                                        <div class="col-md-5">
+                                        <div class="col-12 col-sm-12 col-md-5">
                                             <div class="form-control" style="background: #F4F1F0;">
                                                 <div class="row">
-                                                    <div class="col-md-4" style="width: 10px; background: #FFF; margin-left: 15px; box-shadow: 0px 0px 4px #000000; border-radius: 5px;">
+                                                    <div class="col-3 col-sm-3 col-md-4" style="width: 10px; background: #FFF; margin-left: 15px; box-shadow: 0px 0px 4px #000000; border-radius: 5px;">
                                                         <div class="row" id="orderList" style="display: flex; justify-content:space-around; align-items: center; cursor: pointer;" >
                                                             <a style="color: #286895; font-size:16px; font-weight: 600;">A-z</a>
                                                             <img src="/static/imagens/triangulo.png" style="width: 25%; height: 40%;">
@@ -102,12 +100,12 @@
                                                   <div class="panel-heading accordion-toggle question-toggle collapsed" data-toggle="collapse" data-parent="#myList" data-target="#reprografia{{rep.id}}">
                                                       <div class="panel-title">
                                                           <div class="row" id="infor">
-                                                              <div class="col-md-5">
+                                                              <div class="col-12 col-sm-12 col-md-5">
                                                                   <span class="rep-name" id="nomeReprografia">{{rep.nome}}</span>
                                                               </div>
-                                                              <div class="col-md-3">
+                                                              <div class="col-6 col-sm-6 col-md-3">
                                                                   <div class="row">
-                                                                     <div class="col-md-1">
+                                                                     <div class="col-1 col-sm-1 col-md-1">
                                                                          <div class="row" style="height: 2px;"></div>
                                                                           <div class="row">
                                                                             <img class="clock-img" src="/static/imagens/relogio.png">
@@ -124,7 +122,7 @@
                                                                      </div>
                                                                  </div>
                                                              </div>
-                                                             <div class="col-md-4">
+                                                             <div class="col-7 col-sm-7  col-md-4">
                                                                  <div class="row" style="height: 1px;"></div>
                                                                  <div class="row">
                                                                     <img class="pin-img" src="/static/imagens/pin.png">
@@ -353,54 +351,49 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                  </div>
-                  <div class="container">
-                    <div class="row mt-5 mb-5"></div>
-                    <div class="row">
-                      <div class="col-md-1"></div>
-                      <div class="col-md-9">
-                        <div id="map"></div>
-                        <script>
-                            var map;
-                            var data_from_django = {{ lista|safe }};
 
-                            function initMap(){
-                                console.log(data_from_django);
+                      <div class="col-12 col-sm-12 col-md-1"><p style="color: white;">Espaco branco</p></div>
+                      <div class="col-12 col-sm-12 col-md-5">
+                          <div id="map"></div>
+                          <script>
+                              var map;
+                              var data_from_django = {{ lista|safe }};
 
-                                map = new google.maps.Map(document.getElementById('map'), {
-                                    center: new google.maps.LatLng(data_from_django[0][1], data_from_django[0][2]),
-                                    zoom: 13,
-                                    mapTypeId: google.maps.MapTypeId.ROADMAP,
-                                });
+                              function initMap(){
+                                  console.log(data_from_django);
 
-                                var infoWindow = new google.maps.InfoWindow();
+                                  map = new google.maps.Map(document.getElementById('map'), {
+                                      center: new google.maps.LatLng(data_from_django[0][1], data_from_django[0][2]),
+                                      zoom: 13,
+                                      mapTypeId: google.maps.MapTypeId.ROADMAP,
+                                  });
 
-                                var marker, i;
+                                  var infoWindow = new google.maps.InfoWindow();
 
-                                for (i = 1; i < data_from_django.length; i++){
-                                    console.log("Ponto " + i + ": (" + data_from_django[i][1] + ", " + data_from_django[i][2] + ")");
-                                    marker = new google.maps.Marker({
-                                        position: new google.maps.LatLng(data_from_django[i][1], data_from_django[i][2]),
-                                        map: map
-                                    });
+                                  var marker, i;
 
-                                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                                        return function() {
-                                            infoWindow.setContent(data_from_django[i][0]);
-                                            infoWindow.open(map, marker);
-                                        }
-                                    })(marker, i));
-                                }
-                            }
-                        </script>
-                        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrc4kHDhi7GOYb5IBKUn1mrj6MsX85eNg&callback=initMap" async defer></script>
+                                  for (i = 1; i < data_from_django.length; i++){
+                                      console.log("Ponto " + i + ": (" + data_from_django[i][1] + ", " + data_from_django[i][2] + ")");
+                                      marker = new google.maps.Marker({
+                                          position: new google.maps.LatLng(data_from_django[i][1], data_from_django[i][2]),
+                                          map: map
+                                      });
 
+                                      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                          return function() {
+                                              infoWindow.setContent(data_from_django[i][0]);
+                                              infoWindow.open(map, marker);
+                                          }
+                                      })(marker, i));
+                                  }
+                              }
+                          </script>
+                          <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrc4kHDhi7GOYb5IBKUn1mrj6MsX85eNg&callback=initMap" async defer></script>
 
                       </div>
+                      </div>
                     </div>
-                  </div>
-              </div>
+
           </div>
 
         <script>
