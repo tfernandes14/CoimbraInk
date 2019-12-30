@@ -2,11 +2,14 @@ from django.shortcuts import render
 from django.core.exceptions import ObjectDoesNotExist
 from .models import *
 import requests
+from django.http import HttpResponseRedirect
 from django.core.files.storage import FileSystemStorage
 from django.http import JsonResponse
 import json
 
 def home(request):
+    
+
     reprografias = Reprografia.objects.all()
     todas = get_lat_long()
     tese = Tese.objects.all()
@@ -16,30 +19,10 @@ def home(request):
     a2 = Adois.objects.all()
     a1 = Aum.objects.all()
     a0 = Azero.objects.all()
-    fs=FileSystemStorage()
-    ficheiros=fs.listdir("../file")
-    print(ficheiros)
-    if ficheiros == ([], []):
-        ficheiros=["v"]
-    else:
-        ficheiros=ficheiros[1]
-
-    print(ficheiros)
-
-    if request.method=='POST':
-        print(request.POST)
-        if 'document' not in request.POST:
-            uploaded_file=request.FILES['document']
-            print(uploaded_file.name)
-            if fs.exists(uploaded_file.name) == False:
-                fs.save(uploaded_file.name,uploaded_file)
-                if(ficheiros[0]=="v"):
-                    ficheiros[0]=(uploaded_file.name)
-                else:
-                    ficheiros.append(uploaded_file.name)
+    
     return render(request, 'simulador.html', {'reprografias': reprografias,
                                               'A5': a5, 'A4': a4, 'A3': a3,
-                                              'A2': a2,'A1': a1, 'A0': a0, 'tese' : tese, 'lista': todas,'ficheiros':ficheiros})
+                                              'A2': a2,'A1': a1, 'A0': a0, 'tese' : tese, 'lista': todas})
 
 
 def simulador(request,pk):
@@ -83,8 +66,8 @@ def busca_pagina(request,pk,choice):
     return JsonResponse(objeto, safe=False)
 
 
-
-
+    
+                    
 
 
 

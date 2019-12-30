@@ -6,27 +6,29 @@
 
 	 <div class="row" style="height: 100px;"></div>
 	 <div class="row">
+		<div class="col-md-1"></div>
 		<div class="col-md-3" style="margin-left:5%">
 			<input class="form-control" id="inputSearch" type="text" placeholder="Search location.." style="background: #F4F1F0;">
-			<div class="table-wrapper-scroll-y my-custom-scrollbar mt-2" style="background: #F4F1F0;border-radius:10px;height: 415px;">
-                <ul class="list-group" id="myRep">
-                    {% for repo in reprografias %}
-                    	{% for aquatro in A4 %}
-                    		{% ifequal aquatro.reprografia_id repo.id %}
-                    			{% ifnotequal aquatro.frente_preto_branco_preco -1 %}
-			                        <div class=" list-group-item mb-2 " id="reprografia" data-param1="{{repo.nome}}" data-param2="{{repo.contacto}}" data-param3="{{repo.id}}" style="border-radius:10px;">
-			                            <span class="rep-name">{{repo.nome}} </span>
-			                        </div>
-			                    {% endifnotequal %}
-			                {% endifequal %}
-			            {% endfor %}     
-                    {% endfor %}
-                </ul>
+			<div class="table-wrapper-scroll-y my-custom-scrollbar mt-2" style="background: #F4F1F0;border-radius:10px;height: 460px;">
+				<ul class="list-group" id="myRep">
+					{% for repo in reprografias %}
+						{% for aquatro in A4 %}
+							{% ifequal aquatro.reprografia_id repo.id %}
+								{% ifnotequal aquatro.frente_preto_branco_preco -1 %}
+									<div class=" list-group-item mb-2 " id="reprografia" data-param1="{{repo.nome}}" data-param2="{{repo.contacto}}" data-param3="{{repo.id}}" style="border-radius:10px;">
+										<span class="rep-name">{{repo.nome}} </span>
+									</div>
+								{% endifnotequal %}
+							{% endifequal %}
+						{% endfor %}     
+					{% endfor %}
+				</ul>
 			</div>
 		</div>
 		<div class="col-md-5">
-			<form method='post'>
-			<div class="table-wrapper-scroll-y  mt-2" style="background: #F4F1F0;border-radius:10px;">
+			<h2  id="texto_esconder" style="margin-left: 20px;font-weight: bold;font-size: 30px;color: #286895;text-align:center">Selecione uma reprografia</h2>
+
+			<div id="simular_caixa" class="table-wrapper-scroll-y  mt-2" style="background: #F4F1F0;border-radius:10px;height: 500px;">
 				<h2  class="nomeselecionado" style="margin-left: 20px;font-weight: bold;font-size: 30px;color: #286895;text-align:center">Nome Selecionado</h2>
 				<div class="row">
 					<div class="col-4">
@@ -38,7 +40,7 @@
 							<option id="A1" value="Aum">A1</option>
 							<option id="A2" value="Adois">A2</option>
 							<option id="A3" value="Atres">A3</option>
-							<option id="A4" value="Aquatro">A4</option>
+							<option id="A4" selected="selected" value="Aquatro">A4</option>
 							<option id="A5" value="Acinco">A5</option>
 						</select>
 					</div>
@@ -48,18 +50,29 @@
 						<p style="color: #286895;font-size: 20px;font-weight: bold;margin-left: 10px;">Nº paginas </p>
 					</div>
 					<div class="col">
-						<input type="text" name="lname" style="height:30px;box-shadow: 5px 5px 5px grey;border: 1px solid #DCDCDC;border-radius: 5px;">
+						<input type="text" id="n_paginas" name="lname" style="height:30px;box-shadow: 5px 5px 5px grey;border: 1px solid #DCDCDC;border-radius: 5px;">
+					</div>
+				</div>
+				<div class="row" id="frente_verso">
+					<div class="col-4">
+							<p style="color: #286895;font-size: 20px;font-weight: bold;margin-left: 10px;">Frente e verso </p>
+					</div>
+					<div class="col">
+						<label class="checkbox">
+							<input type="checkbox" id="frente_verso_check" value="frente_verso_check"/>
+								<span style="font-size: 20px;"></span>
+						</label>
 					</div>
 				</div>
 				<div class="row" id="preto_branco">
-	          		<div class="col-4">
+					<div class="col-4">
 							<p style="color: #286895;font-size: 20px;font-weight: bold;margin-left: 10px;">Preto e Branco </p>
 					</div>
 					<div class="col">
 						<label class="checkbox">
-	              			<input type="checkbox" value="preto_branco"/>
+							<input type="checkbox" id="preto_branco_check" value="preto_branco_check" required/>
 								<span style="font-size: 20px;"></span>
-	          			</label>
+						</label>
 					</div>
 				</div>
 				<div class="row" id="cores">
@@ -68,9 +81,9 @@
 					</div>
 					<div class="col">
 						<label class="checkbox">
-	              			<input type="checkbox" value="cores"/>
+							<input type="checkbox" id="cores_check" value="cores_check" required/>
 								<span style="font-size: 20px;"></span>
-	          			</label>
+						</label>
 					</div>
 				</div>
 				<div class="row" id="encadernacao">
@@ -79,21 +92,21 @@
 					</div>
 					<div class="col">
 						<label class="checkbox">
-	              			<input type="checkbox" value="encadernar"/>
+							<input type="checkbox" id="encadernacao_check" value="encadernar_check"/>
 								<span style="font-size: 20px;"></span>
-	         			 </label>
+						 </label>
 					</div>
 
 				</div>
 				<div class="row" id="plastificacao">
-          			<div class="col-4">
+					<div class="col-4">
 						<p style="color: #286895;font-size: 20px;font-weight: bold;margin-left: 10px;">Plastificacao </p>
 					</div>
 					<div class="col">
 						<label class="checkbox">
-	              			<input type="checkbox" value="plastificar"/>
+							<input type="checkbox" id="plastificacao_check" value="plastificar_check"/>
 								<span style="font-size: 20px;"></span>
-	          			</label>
+						</label>
 					</div>
 				</div>
 				<div class="row">
@@ -101,209 +114,332 @@
 						<p style="color: #286895;font-size: 20px;font-weight: bold;margin-left: 10px;">Total: </p>
 					</div>
 					<div class="col" >
-						<p style="color:rgb(64, 64, 64);font-size: 20px;">14,00 € </p>
+						<p id="resultado" style="color:rgb(64, 64, 64);font-size: 20px;">0,00 € </p>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col">
-						<button class=" list-group-item" style="font-size: 17px; border-radius:10px;font-weight: bold;color: #286895;" id="simular" type="submit">Simular</button>
+						<button class=" list-group-item" style="font-size: 17px; border-radius:10px;font-weight: bold;color: #286895;" id="simular">Simular</button>
 					</div>
 					<div class="col" align="right">
-						<button class=" list-group-item" style="font-size: 17px; border-radius:10px;font-weight: bold;color: #286895;" id="adicionar" type="submit">Adicionar</button>
+						<button id="apagar" class=" list-group-item" style="font-size: 17px; border-radius:10px;font-weight: bold;color: #286895;" id="adicionar" >APAGAR</button>
 					</div>
 				</div>
 			</div>
-			</form>
-		</div>
-		<div class="col-md-3">
-			<div class="table-wrapper-scroll-y my-custom-scrollbar mt-2" style="background: #F4F1F0;border-radius:10px;">
-				<h2  style="margin-left: 20px;font-weight: bold;font-size: 30px;color: #286895;">Documento</h2>
-
-					{% for f in ficheiros %}
-						{% if f != 'v' %}
-							<label class="checkbox1">
-				                <input id={{ f }} type="checkbox"/>
-				                <span style="color:rgb(64, 64, 64);font-size: 23px;font-weight: bold;">{{f}}</span>
-				            </label>
-				           {% endif %}
-					{% endfor %}
-				<form method='post' enctype="multipart/form-data">
-					{% csrf_token %}
-					<input name="document" type="file"/>
-					<button class=" list-group-item" style="margin-left: 30%;font-size: 17px; margin-top: 50%;border-radius:10px;font-weight: bold;color: #286895;" id="novoDoc" type="submit">Novo Documento</button>
-				</form>
-			</div>
+			
 		</div>
 	</div>
 
-    <script>
-    	var pk;
-	    $(document).ready(function(){
-            $("#inputSearch").on("keyup", function() {
-      		   var filter, i=0;
-               filter = $(this).val().toLowerCase();
-               console.log(filter);
-
-               $.each($('#myRep #reprografia'), function() {
-                  var element = this;
-                  var nome = element.getElementsByTagName("span")[0];
-                  nome = nome.textContent || nome.innerText;
-                  if (nome.toLowerCase().indexOf(filter) > -1) {
-                      element.style.display = "";
-                  }
-                  else{
-                      element.style.display = "none";
-                  }
-               });
-            });
-        });
-
-	    $('#myRep #reprografia').click(function() {
-	        var $div = $(this);
-	        var param1 = $div.attr('data-param1');
-	        var param2 = $div.attr('data-param2');
-	        pk = $div.attr('data-param3');
-	        var dados;
-	        
-	        console.log(pk);
-
-	        $('.nomeselecionado').text(param1);
-	        console.log(param1);
-	        console.log(param2);
-	        
-	        const csrf_token = document.getElementsByName("csrfmiddlewaretoken")[0].value
-		    $.ajaxSetup({
-		        headers:{
-		            "X-CSRFToken": csrf_token
-		        }
-		    });
-
-		    for(let i = 0; i < 6; i++){
-	    		var elemento = document.getElementById("A" + (i).toString());
-	    		elemento.style.display = "";
-		    }
-
-		    document.getElementById("cores").style.display="";
-		    document.getElementById("preto_branco").style.display="";
-		    document.getElementById("encadernacao").style.display="";
-		    document.getElementById("plastificacao").style.display="";
-		    
-
-	        $.ajax({
-        
-		        url: window.location.origin + "/simulador/"+ pk + "/",
-		        type: "PATCH",
-		        contentType:"application/json",
-		        success: (response_data)=>{
-		            
-		            dados = response_data;
-
-		            for(let i = 0; i < dados.length; i++){
-				    	console.log(dados[i]["frente_preto_branco_preco"]);
-				    	if(dados[i]["frente_preto_branco_preco"] == -1){
-
-				    		var elemento = document.getElementById("A" + (5-i).toString());
-				    		elemento.style.display = "none";
-				    	}
-				    }
-
-		        },
-		        failure:(response_data)=>{
-		            console.log("FAILURE===", response_data);
-		        }
-
-		    });
-		    
+	<script>
+		var pk;
+		var dados;
+		document.getElementById("simular_caixa").style.display="none";
 
 
-	     });
+		$(document).ready(function(){
+			$("#inputSearch").on("keyup", function() {
+			   var filter, i=0;
+			   filter = $(this).val().toLowerCase();
+			   console.log(filter);
+
+			   $.each($('#myRep #reprografia'), function() {
+				  var element = this;
+				  var nome = element.getElementsByTagName("span")[0];
+				  nome = nome.textContent || nome.innerText;
+				  if (nome.toLowerCase().indexOf(filter) > -1) {
+					  element.style.display = "";
+				  }
+				  else{
+					  element.style.display = "none";
+				  }
+			   });
+			});
+		});
+
+		$('#myRep #reprografia').click(function() {
+			document.getElementById("simular_caixa").style.display="";
+			document.getElementById("texto_esconder").style.display="none";
+			var $div = $(this);
+			var param1 = $div.attr('data-param1');
+			var param2 = $div.attr('data-param2');
+			pk = $div.attr('data-param3');
+			var repro;
+			
+			console.log(pk);
+
+			$('.nomeselecionado').text(param1);
+			console.log(param1);
+			console.log(param2);
+
+			$('#n_paginas').val("");
+			
+
+			$('#preto_branco_check').prop( "checked", false );
+
+			$('#cores_check').prop( "checked", false );
+
+			$('#encadernacao_check').prop( "checked", false );
+
+			$('#plastificacao_check').prop( "checked", false );
+
+			$('#frente_verso_check').prop( "checked", false );
+
+			$('#preto_branco_check').attr("disabled", false);
+
+			$('#cores_check').attr("disabled", false);
+
+
+			
+			const csrf_token = document.getElementsByName("csrfmiddlewaretoken")[0].value
+			$.ajaxSetup({
+				headers:{
+					"X-CSRFToken": csrf_token
+				}
+			});
+
+			for(let i = 0; i < 6; i++){
+				var elemento = document.getElementById("A" + (i).toString());
+				elemento.style.display = "";
+			}
+
+			document.getElementById("cores").style.display="";
+			document.getElementById("preto_branco").style.display="";
+			document.getElementById("encadernacao").style.display="";
+			document.getElementById("plastificacao").style.display="";
+			document.getElementById("frente_verso").style.display="";
+			
+
+			$.ajax({
+		
+				url: window.location.origin + "/simulador/"+ pk + "/",
+				type: "PATCH",
+				contentType:"application/json",
+				success: (response_data)=>{
+					
+					repro = response_data;
+
+					for(let i = 0; i < repro.length; i++){
+						console.log(repro[i]["frente_preto_branco_preco"]);
+						if(repro[i]["frente_preto_branco_preco"] == -1){
+
+							var elemento = document.getElementById("A" + (5-i).toString());
+							elemento.style.display = "none";
+						}
+					}
+
+				},
+				failure:(response_data)=>{
+					console.log("FAILURE===", response_data);
+				}
+
+			});
+			
+
+
+		 });
 
 
 		$("select#paginas").change(function(){	    
-		   var choice = $( "#paginas option:selected" ).val();
+		    var choice = $( "#paginas option:selected" ).val();
+
+
+		    $('#n_paginas').val("");
+			
+
+			$('#preto_branco_check').prop( "checked", false );
+
+			$('#cores_check').prop( "checked", false );
+
+			$('#encadernacao_check').prop( "checked", false );
+
+			$('#plastificacao_check').prop( "checked", false );
+
+			$('#frente_verso_check').prop( "checked", false );
+
+			$('#preto_branco_check').attr("disabled", false);
+
+			$('#cores_check').attr("disabled", false);
+
+
+
+
 
 		   const csrf_token = document.getElementsByName("csrfmiddlewaretoken")[0].value
-		    $.ajaxSetup({
-		        headers:{
-		            "X-CSRFToken": csrf_token
-		        }
-		    });
+			$.ajaxSetup({
+				headers:{
+					"X-CSRFToken": csrf_token
+				}
+			});
 
-		    
+			
 
-		    $.ajax({
-        
-		        url: window.location.origin + "/busca_pagina/"+ pk + "/" + choice + "/",
-		        type: "PATCH",
-		        contentType:"application/json",
-		        success: (response_data)=>{
-		            
-		            dados = response_data;
-
-
-		            
-				    	if(dados["frente_cor_preco"] == -1){
-
-				    		var elemento = document.getElementById("cores");
-				    		elemento.style.display = "none";
-				    	}
-				    	else{
-				    		document.getElementById("cores").style.display="";
-				    	}
-
-				    	if(dados["frente_preto_branco_preco"] == -1){
-
-				    		var elemento = document.getElementById("preto_branco");
-				    		elemento.style.display = "none";
-				    	}
-				    	else{
-				    		document.getElementById("preto_branco").style.display="";
-				    	}
-
-				    	if(dados["frente_verso_cor_preco"] == -1){
-
-				    		var elemento = document.getElementById("cores");
-				    		elemento.style.display = "none";
-				    	}
-				    	else{
-				    		document.getElementById("cores").style.display="";
-				    	}
-
-				    	if(dados["frente_verso_preto_branco_preco"] == -1){
-
-				    		var elemento = document.getElementById("preto_branco");
-				    		elemento.style.display = "none";
-				    	}
-				    	else{
-				    		document.getElementById("preto_branco").style.display="";
-				    	}
+			$.ajax({
+		
+				url: window.location.origin + "/busca_pagina/"+ pk + "/" + choice + "/",
+				type: "PATCH",
+				contentType:"application/json",
+				success: (response_data)=>{
+					
+					dados = response_data;
 
 
-				    	if(dados["encadernacao"] == -1){
+					
+						if(dados["frente_cor_preco"] == -1 && dados["frente_verso_cor_preco"] == -1){
 
-				    		var elemento = document.getElementById("encadernacao");
-				    		elemento.style.display = "none";
-				    	}
-				    	else{
-				    		document.getElementById("encadernacao").style.display="";
-				    	}
-				    	if(dados["plastificacao"] == -1){
+							var elemento = document.getElementById("cores");
+							elemento.style.display = "none";
 
-				    		var elemento = document.getElementById("plastificacao");
-				    		elemento.style.display = "none";
-				    	}
-				    	else{
-				    		document.getElementById("plastificacao").style.display="";
-				    	}
-				    
+							if(dados["frente_verso_cor_preco"] == -1){
 
-		        },
-		        failure:(response_data)=>{
-		            console.log("FAILURE===", response_data);
-		        }
+								document.getElementById("frente_verso").style.display="none";
+							}
 
-		    });
+						}
+						else{
+							if(dados["frente_verso_cor_preco"] == -1){
 
+								document.getElementById("frente_verso").style.display="none";
+							}
+
+							document.getElementById("cores").style.display="";
+						}
+
+						if(dados["frente_preto_branco_preco"] == -1 && dados["frente_verso_preto_branco_preco"] == -1){
+
+							var elemento = document.getElementById("preto_branco");
+							elemento.style.display = "none";
+							if(dados["frente_verso_preto_branco_preco"] == -1){
+
+								document.getElementById("frente_verso").style.display="none";
+							}
+						}
+						else{
+							if(dados["frente_verso_preto_branco_preco"] == -1){
+
+								document.getElementById("frente_verso").style.display="none";
+							}
+							document.getElementById("preto_branco").style.display="";
+						}
+
+
+
+						if(dados["encadernacao"] == -1){
+
+							var elemento = document.getElementById("encadernacao");
+							elemento.style.display = "none";
+						}
+						else{
+							document.getElementById("encadernacao").style.display="";
+						}
+						if(dados["plastificacao"] == -1){
+
+							var elemento = document.getElementById("plastificacao");
+							elemento.style.display = "none";
+						}
+						else{
+							document.getElementById("plastificacao").style.display="";
+						}
+					
+
+				},
+				failure:(response_data)=>{
+					console.log("FAILURE===", response_data);
+				}
+
+			});
+
+
+		});
+
+		$("#simular").click(function(){
+
+			var paginas = $('#n_paginas').val();
+			
+
+			var preto_branco = $('#preto_branco_check').is(":checked");
+
+			var cores = $('#cores_check').is(":checked");
+
+			var encadernacao = $('#encadernacao_check').is(":checked");
+
+			var plastificacao = $('#plastificacao_check').is(":checked");
+
+			var frente_verso = $('#frente_verso_check').is(":checked");
+
+			console.log(dados);
+
+			var conta = 0
+
+		    if (frente_verso && cores && dados["frente_verso_cor_preco"] != -1){
+		        conta += dados["frente_verso_cor_preco"] * paginas;
+		    }
+		    else if(frente_verso && preto_branco && dados["frente_verso_preto_branco_preco"] != -1 ){
+		        conta +=dados["frente_verso_preto_branco_preco"] * paginas;
+		    }
+		    else if(frente_verso == false && cores && dados["frente_cor_preco"] != -1){
+		        conta +=dados["frente_cor_preco"] * paginas;
+		    }
+		    else if(frente_verso == false && preto_branco && dados["frente_preto_branco_preco"] != -1){
+		        conta +=dados["frente_preto_branco_preco"] * paginas;
+		    }
+
+		    if (encadernacao && dados["encadernacao"] != -1){
+		        conta += dados["encadernacao"]
+		    }
+
+		    if(plastificacao && dados["plastificacao"] != -1){
+		        conta += dados["plastificacao"]
+		    }
+
+		    console.log(conta)
+
+		    $('#resultado').text(conta + " €");
+
+
+		});
+
+		$("#preto_branco_check").click(function(){
+
+			if($('#preto_branco_check').is(":checked")){
+				 $('#cores_check').attr("disabled", true);
+			}
+			else{
+				$('#cores_check').attr("disabled", false);
+			}
+
+
+
+		});
+
+		$("#cores_check").click(function(){
+
+			if($('#cores_check').is(":checked")){
+				 $('#preto_branco_check').attr("disabled", true);
+			}
+			else{
+				 $('#preto_branco_check').attr("disabled", false);
+			}
+
+		});
+
+		$("#apagar").click(function(){
+
+			$('#n_paginas').val("");
+			
+
+			$('#preto_branco_check').prop( "checked", false );
+
+			$('#cores_check').prop( "checked", false );
+
+			$('#encadernacao_check').prop( "checked", false );
+
+			$('#plastificacao_check').prop( "checked", false );
+
+			$('#frente_verso_check').prop( "checked", false );
+
+			$('#preto_branco_check').attr("disabled", false);
+
+			$('#cores_check').attr("disabled", false);
 
 		});
 
@@ -311,8 +447,5 @@
 
 
 
-
-
-
-    </script>
+	</script>
 {% endblock %}
