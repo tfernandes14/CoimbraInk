@@ -316,6 +316,11 @@ html {
 }
 
 /*footer*/
+
+footer {
+    height: 90px;
+}
+
 .text-footer {
     font-family: Red Hat Text;
     font-style: normal;
@@ -340,7 +345,7 @@ html {
 }
 
 .logo-footer {
-    width: 60%;
+    width: 55%;
     margin-right: 10px;
     margin-left: 30%;
 }
