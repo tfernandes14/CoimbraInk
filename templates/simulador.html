@@ -151,7 +151,7 @@
 			    $("#inputSearch").on("keyup", function() {
 			        var filter;
 			        filter = $(this).val().toLowerCase();
-			        console.log(filter);
+			        // console.log(filter);
 
                     $.each($('#myRep #reprografia'), function() {
 				        var element = this;
@@ -177,11 +177,11 @@
 			    pk = $div.attr('data-param3');
 			    var repro;
 			
-			    console.log(pk);
+			    // console.log(pk);
 
     			$('.nomeselecionado').text(param1);
-                console.log(param1);
-			    console.log(param2);
+                // console.log(param1);
+			    // console.log(param2);
 
 		        $('#n_paginas').val("");
 
@@ -228,7 +228,7 @@
 				    success: (response_data)=>{
 					    repro = response_data;
 					    for(let i = 0; i < repro.length; i++){
-						    console.log(repro[i]["frente_preto_branco_preco"]);
+						    // console.log(repro[i]["frente_preto_branco_preco"]);
 						    if(repro[i]["frente_preto_branco_preco"] == -1){
 							    var elemento = document.getElementById("A" + (5-i).toString());
 							    elemento.style.display = "none";
@@ -236,7 +236,7 @@
 					    }
 				    },
 				    failure:(response_data)=>{
-					    console.log("FAILURE===", response_data);
+					    // console.log("FAILURE===", response_data);
                     }
 			    });
 		    });
@@ -332,7 +332,7 @@
 						}
 				    },
 				    failure:(response_data)=>{
-    					console.log("FAILURE===", response_data);
+    					// console.log("FAILURE===", response_data);
     				}
     			});
 	    	});
@@ -351,7 +351,7 @@
 
     			var frente_verso = $('#frente_verso_check').is(":checked");
 
-	    		console.log(dados);
+	    		// console.log(dados);
 
     			var conta = 0;
 
@@ -376,7 +376,7 @@
     		        conta += dados["plastificacao"];
     		    }
 
-	    	    console.log(conta);
+	    	    // console.log(conta);
 
 		        $('#resultado').text(conta + " €");
 
