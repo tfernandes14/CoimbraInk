@@ -365,7 +365,67 @@ footer {
   }
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 620px) {
+  .text-footer{
+    font-size: 15px;
+  }
+  .text-footer1{
+    font-size: 15px;
+    margin-left: 30%;
+  }
+  .logo-footer{
+    width: 60%;
+    margin-right: 10px;
+    margin-left: 30%;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .text-footer{
+    font-size: 15px;
+  }
+  .text-footer1{
+    font-size: 15px;
+    margin-left: 20%;
+  }
+  .logo-footer{
+    width: 60%;
+    margin-right: 10px;
+    margin-left: 20%;
+  }
+}
+
+@media only screen and (max-width: 490px) {
+  .text-footer{
+    font-size: 14px;
+  }
+  .text-footer1{
+    font-size: 14px;
+    margin-left: 20%;
+  }
+  .logo-footer{
+    width: 70%;
+    margin-right: 10px;
+    margin-left: 20%;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .text-footer{
+    font-size: 13px;
+  }
+  .text-footer1{
+    font-size: 13px;
+    margin-left: 20%;
+  }
+  .logo-footer{
+    width: 70%;
+    margin-right: 10px;
+    margin-left: 20%;
+  }
+}
+
+@media only screen and (max-width: 380px) {
   .text-footer{
     font-size: 12px;
   }
@@ -373,7 +433,20 @@ footer {
     font-size: 12px;
   }
   .logo-footer{
-    width: 150%;
+    width: 70%;
+    margin-right: 10px;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .text-footer{
+    font-size: 11px;
+  }
+  .text-footer1{
+    font-size: 11px;
+  }
+  .logo-footer{
+    width: 70%;
     margin-right: 10px;
   }
 }
