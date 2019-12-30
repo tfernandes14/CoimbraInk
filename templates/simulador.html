@@ -36,11 +36,12 @@
 					</div>
 					<div class="col">
 						<select id = "paginas" style="border-radius: 5px; box-shadow: 5px 5px 5px grey;">
+							<option id="set" selected="selected" value="set"></option>
 							<option id="A0" value="Azero">A0</option>
 							<option id="A1" value="Aum">A1</option>
 							<option id="A2" value="Adois">A2</option>
 							<option id="A3" value="Atres">A3</option>
-							<option id="A4" selected="selected" value="Aquatro">A4</option>
+							<option id="A4"  value="Aquatro">A4</option>
 							<option id="A5" value="Acinco">A5</option>
 						</select>
 					</div>
@@ -122,7 +123,7 @@
 						<button class=" list-group-item" style="font-size: 17px; border-radius:10px;font-weight: bold;color: #286895;" id="simular">Simular</button>
 					</div>
 					<div class="col" align="right">
-						<button id="apagar" class=" list-group-item" style="font-size: 17px; border-radius:10px;font-weight: bold;color: #286895;" id="adicionar" >APAGAR</button>
+						<button id="apagar" class=" list-group-item" style="font-size: 17px; border-radius:10px;font-weight: bold;color: #286895;" id="adicionar" >Limpar</button>
 					</div>
 				</div>
 			</div>
@@ -187,6 +188,8 @@
 			$('#preto_branco_check').attr("disabled", false);
 
 			$('#cores_check').attr("disabled", false);
+
+			$('#paginas option:eq(0)').prop('selected', true);
 
 
 			
@@ -440,6 +443,8 @@
 			$('#preto_branco_check').attr("disabled", false);
 
 			$('#cores_check').attr("disabled", false);
+
+			$('#paginas option:eq(0)').prop('selected', true);
 
 		});
 
