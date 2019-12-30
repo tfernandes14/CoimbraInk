@@ -3,6 +3,7 @@
     $db_connection = pg_connect("host=localhost dbname=CoimbraInk user=admin password=admin");
 ?>-->
 <!DOCTYPE html>
+<!--suppress ALL -->
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -25,25 +26,22 @@
         <div id="counters">
             <!-- Visitas totais -->
             <a href="https://www.hitwebcounter.com" target="_blank">
-                <img src="https://hitwebcounter.com/counter/counter.php?page=7174885&style=0001&nbdigits=5&type=page&initCount=0" title="Counter" Alt="hit web counter.com"   border="0" >
+                <img src="https://hitwebcounter.com/counter/counter.php?page=7174885&style=0001&nbdigits=5&type=page&initCount=0" title="Counter" Alt="hit web counter.com" border="0" >
             </a>
             <!-- Novos utilizadores -->
             <a href="https://www.hitwebcounter.com" target="_blank">
-                <img src="https://hitwebcounter.com/counter/counter.php?page=7174886&style=0001&nbdigits=5&type=ip&initCount=0" title="Counter" Alt="hit web counter.com"   border="0" >
+                <img src="https://hitwebcounter.com/counter/counter.php?page=7174886&style=0001&nbdigits=5&type=ip&initCount=0" title="Counter" Alt="hit web counter.com" border="0" >
             </a>
         </div>
 
 
         <div class="row nav">
             <nav class="navbar navbar-light purple lighten-4">
-                  <!-- Navbar brand -->
-                    <!-- Collapse button -->
-                  <button class="navbar-toggler toggler-example purple darken-3" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent41" aria-controls="navbarSupportedContent41" aria-expanded="false"
-                    aria-label="Toggle navigation"><span class="white-text"><i class="fas fa-bars fa-1x"></i></span></button>
-
-                  <!-- Collapsible content -->
-                  <div class="collapse navbar-collapse" id="navbarSupportedContent41">
+                <!-- Navbar brand -->
+                <!-- Collapse button -->
+                <button class="navbar-toggler toggler-example purple darken-3" type="button" data-toggle="collapse" data-target="#navbarSupportedContent41" aria-controls="navbarSupportedContent41" aria-expanded="false" aria-label="Toggle navigation"><span class="white-text"><i class="fas fa-bars fa-1x"></i></span></button>
+                <!-- Collapsible content -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent41">
 
                     <!-- Links -->
                     <ul class="navbar-nav mr-auto">
@@ -51,44 +49,46 @@
                             <a class="nav-link fss-nav-item waves-effect waves-light active" href="#mapa" style="color: #286895;">Mapa</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link fss-nav-item waves-effect waves-light active" href="#simulador" style="color: #286895;">Simulador</a>
-                        </li>
+                       <li class="nav-item">
+                           <a class="nav-link fss-nav-item waves-effect waves-light active" href="#simulador" style="color: #286895;">Simulador</a>
+                       </li>
                     </ul>
                     <!-- Links -->
 
-                  <!-- Collapsible content -->
-                  </div>
-                </nav>
+                    <!-- Collapsible content -->
+                </div>
+            </nav>
         </div>
-        <div class="bg background1">
-             <div class="row" style="height: calc(100vh/1.15)">
-                 <div class="col-md-6" style="display:flex; justify-content: center; align-items: center;">
-                     <img src="/static/imagens/logo.png" style="width: 300px;">
-                 </div>
-            </div>
 
+        <div class="bg background1">
+            <div class="row" style="height: calc(100vh/1.15)">
+                <div class="col-md-6" style="display:flex; justify-content: center; align-items: center;">
+                    <img src="/static/imagens/logo.png" style="width: 300px;">
+                </div>
+            </div>
             <!--/.Navbar-->
             <div class="row mb-3" style="margin-left:5px; width: 100vw; display:flex; justify-content: center;">
                 <img src="/static/imagens/setas.png" id="scroll-img" style="width: 70px; transform: rotate(180deg); cursor:pointer;">
             </div>
         </div>
+
         <div class="bg background2">
-              <div id="mapa">
-                      <div class="container">
-                      <div class="row mt-5 mb-5"></div>
-                      <div class="row mt-5">
-                          <div class="col-12 col-sm-12 col-md-6">
+            <div id="mapa">
+                <div class="container">
+                    <div class="row mt-5 mb-5"></div>
+                        <div class="row mt-5">
+                            <div class="col-12 col-sm-12 col-md-6">
                                 <div class="row">
                                     <div class="col-12 col-sm-12 col-md-7">
                                         <input  class="form-control opt" id="myInput" type="text" placeholder="Search location.." style="background: #F4F1F0;">
                                     </div>
+
                                     <div class="col-12 col-sm-12 col-md-5">
                                         <div class="form-control" style="background: #F4F1F0;">
                                             <div class="row">
                                                 <div class="col-3 col-sm-3 col-md-4" style="width: 10px; background: #FFF; margin-left: 15px; box-shadow: 0px 0px 4px #000000; border-radius: 5px;">
                                                     <div class="row" id="orderList" style="display: flex; justify-content:space-around; align-items: center; cursor: pointer;" >
-                                                      <a class="opt" style="color: #286895; font-weight: 600;">A-z</a>
+                                                        <a class="opt" style="color: #286895; font-weight: 600;">A-z</a>
                                                         <img class="triangulo-img" src="/static/imagens/triangulo.png">
                                                     </div>
                                                 </div>
@@ -97,386 +97,391 @@
                                         </div>
                                     </div>
                                 </div>
-                              <div class="table-wrapper-scroll-y my-custom-scrollbar mt-2">
-                                  <ul class="list-group" id="myList">
-                                      {% for rep in reprografias %}
-                                          <div class="panel panel-default list-group-item mb-2" style="border-radius: 10px;">
-                                              <div class="panel-heading accordion-toggle question-toggle collapsed" data-toggle="collapse" data-parent="#myList" data-target="#reprografia{{rep.id}}">
-                                                  <div class="panel-title">
-                                                      <div class="row" id="infor">
-                                                          <div class="col-12 col-sm-12 col-md-5">
-                                                              <span class="rep-name" id="nomeReprografia">{{rep.nome}}</span>
-                                                          </div>
-                                                          <div class="col-4 col-sm-4 col-md-3">
-                                                              <div class="row">
-                                                                 <div class="col-1 col-sm-1 col-md-1">
-                                                                     <div class="row" style="height: 2px;"></div>
-                                                                      <div class="row">
-                                                                        <img class="clock-img" src="/static/imagens/relogio.png">
-                                                                      </div>
-                                                                 </div>
-                                                                 <div class="col">
-                                                                     <div class="row">
-                                                                         {% ifequal rep.horario_abertura_semana_manha -1 %}
-                                                                            <a class="rep-info1">Horário Não Disponível</a>
-                                                                         {% else %}
-                                                                         <a  class="rep-info1">{{rep.horario_abertura_semana_manha}}h-{{rep.horario_fecho_semana_tarde}}h</a>
-                                                                         {% endifequal %}
-                                                                     </div>
-                                                                 </div>
-                                                             </div>
-                                                         </div>
-                                                         <div class="col-8 col-sm-8  col-md-4">
-                                                             <div class="row" style="height: 1px;"></div>
-                                                             <div class="row">
-                                                                <img class="pin-img" src="/static/imagens/pin.png">
-                                                                 <div class="col-ml-2"></div>
-                                                                 <a class="rep-info1" id="localizacaoReprografia">{{rep.zona}}</a>
-                                                             </div>
-                                                             <div class="row"></div>
-                                                         </div>
-                                                     </div>
-                                                 </div>
-                                                 <div class="panel-body">
-                                                     {% for aquatro in A4 %}
-                                                         {% ifequal aquatro.reprografia_id rep.id  %}
-                                                            {% ifnotequal aquatro.frente_preto_branco_preco -1 %}
-                                                                <p class="rep-info2" id="precoA4" ><b>A4 Só Frente:</b> Preto e Branco: {{aquatro.frente_preto_branco_preco}}€
+                                <div class="table-wrapper-scroll-y my-custom-scrollbar mt-2">
+                                    <ul class="list-group" id="myList">
+                                        {% for rep in reprografias %}
+                                            <div class="panel panel-default list-group-item mb-2" style="border-radius: 10px;">
+                                                <div class="panel-heading accordion-toggle question-toggle collapsed" data-toggle="collapse" data-parent="#myList" data-target="#reprografia{{rep.id}}">
+                                                    <div class="panel-title">
+                                                        <div class="row" id="infor">
+                                                            <div class="col-12 col-sm-12 col-md-5">
+                                                                <span class="rep-name" id="nomeReprografia">{{rep.nome}}</span>
+                                                            </div>
+                                                            <div class="col-4 col-sm-4 col-md-3">
+                                                                <div class="row">
+                                                                    <div class="col-1 col-sm-1 col-md-1">
+                                                                        <div class="row" style="height: 2px;"></div>
+                                                                            <div class="row">
+                                                                                <img class="clock-img" src="/static/imagens/relogio.png">
+                                                                            </div>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <div class="row">
+                                                                            {% ifequal rep.horario_abertura_semana_manha -1 %}
+                                                                                <a class="rep-info1">Horário Não Disponível</a>
+                                                                            {% else %}
+                                                                                <a  class="rep-info1">{{rep.horario_abertura_semana_manha}}h-{{rep.horario_fecho_semana_tarde}}h</a>
+                                                                            {% endifequal %}
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-8 col-sm-8  col-md-4">
+                                                                <div class="row" style="height: 1px;"></div>
+                                                                    <div class="row">
+                                                                        <img class="pin-img" src="/static/imagens/pin.png">
+                                                                        <div class="col-ml-2"></div>
+                                                                        <a class="rep-info1" id="localizacaoReprografia">{{rep.zona}}</a>
+                                                                    </div>
+                                                                <div class="row"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="panel-body">
+                                                        {% for aquatro in A4 %}
+                                                            {% ifequal aquatro.reprografia_id rep.id  %}
+                                                                {% ifnotequal aquatro.frente_preto_branco_preco -1 %}
+                                                                    <p class="rep-info2" id="precoA4" ><b>A4 Só Frente:</b> Preto e Branco: {{aquatro.frente_preto_branco_preco}}€
                                                                     {% ifnotequal aquatro.frente_cor_preco -1 %}
                                                                         /pagina COR: {{aquatro.frente_cor_preco}}€/pagina</p>
-                                                                     {% else %}
-                                                                        </p>
                                                                     {% endifnotequal %}
-                                                            {% endifnotequal %}
-                                                         {% endifequal %}
-                                                     {% endfor %}
-                                          </div>
-                                              </div>
-                                              <div id="reprografia{{rep.id}}" class="panel-collapse collapse" style="height: 0px;">
-                                                <div class="panel-body">
-{#                                                        Se nem sequer abrir de manha#}
-                                                    {% ifequal rep.horario_abertura_fds_manha -1 %}
-                                                        <p class="rep-info2"><b>Fim De Semana: </b>Fechado</p>
-                                                    {% else %}
-{#                                                            Se abrir de manha vamos entao ver se fecha para almoco#}
-                                                        {% ifequal rep.horario_fecho_fds_manha -1 %}
-                                                            <p class="rep-info2"><b>Fim De Semana: </b>{{rep.horario_abertura_fds_manha}}h - {{rep.horario_fecho_fds_tarde}}h</p>
-                                                        {% else%}
-{#                                                                Se fechar para almoco vamos ver se volta a abrir de tarde#}
-                                                            {% ifnotequal rep.horario_abertura_fds_tarde -1 %}
-                                                                <p class="rep-info2"><b>Fim De Semana: </b>{{rep.horario_abertura_fds_manha}}h - {{rep.horario_fecho_fds_manha}}h, {{rep.horario_abertura_fds_tarde}}h-{{rep.horario_fecho_fds_tarde}}h</p>
-                                                            {% else %}
-                                                                <p class="rep-info2"><b>Fim De Semana: </b>{{rep.horario_abertura_fds_manha}}h - {{rep.horario_fecho_fds_manha}}h <b>Tarde:</b> Fechado</p>
-                                                            {% endifnotequal %}
+                                                                {% endifnotequal %}
+                                                            {% endifequal %}
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+
+                                                <div id="reprografia{{rep.id}}" class="panel-collapse collapse" style="height: 0px;">
+                                                    <div class="panel-body">
+                                                        {# Se nem sequer abrir de manha#}
+                                                        {% ifequal rep.horario_abertura_fds_manha -1 %}
+                                                            <p class="rep-info2"><b>Fim De Semana: </b>Fechado</p>
+                                                        {% else %}
+                                                            {# Se abrir de manha vamos entao ver se fecha para almoco#}
+                                                            {% ifequal rep.horario_fecho_fds_manha -1 %}
+                                                                <p class="rep-info2"><b>Fim De Semana: </b>{{rep.horario_abertura_fds_manha}}h - {{rep.horario_fecho_fds_tarde}}h</p>
+                                                            {% else%}
+                                                                {# Se fechar para almoco vamos ver se volta a abrir de tarde#}
+                                                                {% ifnotequal rep.horario_abertura_fds_tarde -1 %}
+                                                                    <p class="rep-info2"><b>Fim De Semana: </b>{{rep.horario_abertura_fds_manha}}h - {{rep.horario_fecho_fds_manha}}h, {{rep.horario_abertura_fds_tarde}}h-{{rep.horario_fecho_fds_tarde}}h</p>
+                                                                {% else %}
+                                                                    <p class="rep-info2"><b>Fim De Semana: </b>{{rep.horario_abertura_fds_manha}}h - {{rep.horario_fecho_fds_manha}}h <b>Tarde:</b> Fechado</p>
+                                                                {% endifnotequal %}
+                                                            {% endifequal %}
                                                         {% endifequal %}
-                                                    {% endifequal %}
-                                                    {% for aquatro in A4 %}
-                                                         {% ifequal aquatro.reprografia_id rep.id  %}
-                                                            {% ifnotequal aquatro.frente_verso_preto_branco_preco -1 %}
-                                                                <p class="rep-info2"><b>A4 Frente & Verso:</b> Preto e Branco: {{aquatro.frente_verso_preto_branco_preco}}€
+
+                                                        {% for aquatro in A4 %}
+                                                            {% ifequal aquatro.reprografia_id rep.id  %}
+                                                                {% ifnotequal aquatro.frente_verso_preto_branco_preco -1 %}
+                                                                    <p class="rep-info2"><b>A4 Frente & Verso:</b> Preto e Branco: {{aquatro.frente_verso_preto_branco_preco}}€
                                                                     {% ifnotequal aquatro.frente_verso_cor_preco -1 %}
                                                                         /pagina COR: {{aquatro.frente_verso_cor_preco}}€/pagina</p>
-                                                                     {% else %}
-                                                                        </p>
                                                                     {% endifnotequal %}
-                                                            {% endifnotequal %}
-                                                            {% ifnotequal aquatro.encadernacao -1 %}
-                                                                <p class="rep-info2"><b>A4 Encadernação:</b> {{aquatro.encadernacao}}€</p>
-                                                            {% endifnotequal %}
-                                                            {% ifnotequal aquatro.digitalizacao -1 %}
-                                                                <p class="rep-info2"><b>A4 Digitalização:</b> {{aquatro.digitalizacao}}€</p>
-                                                            {% endifnotequal %}
-                                                            {% ifnotequal aquatro.plastificacao -1 %}
-                                                                <p class="rep-info2"><b>A4 Plastificação:</b> {{aquatro.plastificacao}}€</p>
-                                                            {% endifnotequal %}
-                                                         {% endifequal %}
-                                                    {% endfor %}
-                                                    {% for acinco in A5 %}
-                                                         {% ifequal acinco.reprografia_id rep.id  %}
-                                                            {% ifnotequal acinco.frente_preto_branco_preco -1 %}
-                                                                <p class="rep-info2"><b>A5 Só Frente:</b> Preto e Branco: {{acinco.frente_preto_branco_preco}}€
+                                                                {% endifnotequal %}
+
+                                                                {% ifnotequal aquatro.encadernacao -1 %}
+                                                                    <p class="rep-info2"><b>A4 Encadernação:</b> {{aquatro.encadernacao}}€</p>
+                                                                {% endifnotequal %}
+
+                                                                {% ifnotequal aquatro.digitalizacao -1 %}
+                                                                    <p class="rep-info2"><b>A4 Digitalização:</b> {{aquatro.digitalizacao}}€</p>
+                                                                {% endifnotequal %}
+
+                                                                {% ifnotequal aquatro.plastificacao -1 %}
+                                                                    <p class="rep-info2"><b>A4 Plastificação:</b> {{aquatro.plastificacao}}€</p>
+                                                                {% endifnotequal %}
+                                                            {% endifequal %}
+                                                        {% endfor %}
+
+                                                        {% for acinco in A5 %}
+                                                            {% ifequal acinco.reprografia_id rep.id  %}
+                                                                {% ifnotequal acinco.frente_preto_branco_preco -1 %}
+                                                                    <p class="rep-info2"><b>A5 Só Frente:</b> Preto e Branco: {{acinco.frente_preto_branco_preco}}€
                                                                     {% ifnotequal acinco.frente_cor_preco -1 %}
                                                                         /pagina COR: {{acinco.frente_cor_preco}}€/pagina</p>
-                                                                     {% else %}
-                                                                        </p>
                                                                     {% endifnotequal %}
-                                                            {% endifnotequal %}
-                                                            {% ifnotequal acinco.frente_verso_preto_branco_preco -1 %}
-                                                                <p class="rep-info2"><b>A5 Frente & Verso:</b> Preto e Branco: {{acinco.frente_verso_preto_branco_preco}}€
+                                                                {% endifnotequal %}
+
+                                                                {% ifnotequal acinco.frente_verso_preto_branco_preco -1 %}
+                                                                    <p class="rep-info2"><b>A5 Frente & Verso:</b> Preto e Branco: {{acinco.frente_verso_preto_branco_preco}}€
                                                                     {% ifnotequal acinco.frente_verso_cor_preco -1 %}
                                                                         /pagina COR: {{acinco.frente_verso_cor_preco}}€/pagina</p>
-                                                                     {% else %}
-                                                                        </p>
                                                                     {% endifnotequal %}
-                                                            {% endifnotequal %}
-                                                            {% ifnotequal acinco.encadernacao -1 %}
-                                                                <p class="rep-info2"><b>A5 Encadernação:</b> {{acinco.encadernacao}}€</p>
-                                                            {% endifnotequal %}
-                                                            {% ifnotequal acinco.digitalizacao -1 %}
-                                                                <p class="rep-info2"><b>A5 Digitalização:</b> {{acinco.digitalizacao}}€</p>
-                                                            {% endifnotequal %}
-                                                            {% ifnotequal acinco.plastificacao -1 %}
-                                                                <p class="rep-info2"><b>A5 Plastificação:</b> {{acinco.plastificacao}}€</p>
-                                                            {% endifnotequal %}
-                                                         {% endifequal %}
-                                                    {% endfor %}
-                                                    {% for atres in A3 %}
-                                                         {% ifequal atres.reprografia_id rep.id  %}
-                                                            {% ifnotequal atres.frente_preto_branco_preco -1 %}
-                                                                <p class="rep-info2"><b>A3 Só Frente:</b> Preto e Branco: {{atres.frente_preto_branco_preco}}€
+                                                                {% endifnotequal %}
+
+                                                                {% ifnotequal acinco.encadernacao -1 %}
+                                                                    <p class="rep-info2"><b>A5 Encadernação:</b> {{acinco.encadernacao}}€</p>
+                                                                {% endifnotequal %}
+
+                                                                {% ifnotequal acinco.digitalizacao -1 %}
+                                                                    <p class="rep-info2"><b>A5 Digitalização:</b> {{acinco.digitalizacao}}€</p>
+                                                                {% endifnotequal %}
+
+                                                                {% ifnotequal acinco.plastificacao -1 %}
+                                                                    <p class="rep-info2"><b>A5 Plastificação:</b> {{acinco.plastificacao}}€</p>
+                                                                {% endifnotequal %}
+                                                            {% endifequal %}
+                                                        {% endfor %}
+
+                                                        {% for atres in A3 %}
+                                                            {% ifequal atres.reprografia_id rep.id  %}
+                                                                {% ifnotequal atres.frente_preto_branco_preco -1 %}
+                                                                    <p class="rep-info2"><b>A3 Só Frente:</b> Preto e Branco: {{atres.frente_preto_branco_preco}}€
                                                                     {% ifnotequal atres.frente_cor_preco -1 %}
                                                                         /pagina COR: {{atres.frente_cor_preco}}€/pagina</p>
-                                                                     {% else %}
-                                                                        </p>
                                                                     {% endifnotequal %}
-                                                            {% endifnotequal %}
-                                                            {% ifnotequal atres.frente_verso_preto_branco_preco -1 %}
-                                                                <p class="rep-info2"><b>A3 Frente & Verso:</b> Preto e Branco: {{atres.frente_verso_preto_branco_preco}}€
+                                                                {% endifnotequal %}
+
+                                                                {% ifnotequal atres.frente_verso_preto_branco_preco -1 %}
+                                                                    <p class="rep-info2"><b>A3 Frente & Verso:</b> Preto e Branco: {{atres.frente_verso_preto_branco_preco}}€
                                                                     {% ifnotequal atres.frente_verso_cor_preco -1 %}
                                                                         /pagina COR: {{atres.frente_verso_cor_preco}}€/pagina</p>
-                                                                     {% else %}
-                                                                        </p>
                                                                     {% endifnotequal %}
-                                                            {% endifnotequal %}
-                                                            {% ifnotequal atres.encadernacao -1 %}
-                                                                <p class="rep-info2"><b>A3 Encadernação:</b> {{atres.encadernacao}}€</p>
-                                                            {% endifnotequal %}
-                                                            {% ifnotequal atres.digitalizacao -1 %}
-                                                                <p class="rep-info2"><b>A3 Digitalização:</b> {{atres.digitalizacao}}€</p>
-                                                            {% endifnotequal %}
-                                                            {% ifnotequal atres.plastificacao -1 %}
-                                                                <p class="rep-info2"><b>A3 Plastificação:</b> {{atres.plastificacao}}€</p>
-                                                            {% endifnotequal %}
-                                                         {% endifequal %}
-                                                     {% endfor %}
-                                                     {% for adois in A2 %}
-                                                         {% ifequal adois.reprografia_id rep.id  %}
-                                                            {% ifnotequal adois.frente_preto_branco_preco -1 %}
-                                                                <p class="rep-info2"><b>A2 Só Frente:</b> Preto e Branco: {{adois.frente_preto_branco_preco}}€
+                                                                {% endifnotequal %}
+
+                                                                {% ifnotequal atres.encadernacao -1 %}
+                                                                    <p class="rep-info2"><b>A3 Encadernação:</b> {{atres.encadernacao}}€</p>
+                                                                {% endifnotequal %}
+
+                                                                {% ifnotequal atres.digitalizacao -1 %}
+                                                                    <p class="rep-info2"><b>A3 Digitalização:</b> {{atres.digitalizacao}}€</p>
+                                                                {% endifnotequal %}
+
+                                                                {% ifnotequal atres.plastificacao -1 %}
+                                                                    <p class="rep-info2"><b>A3 Plastificação:</b> {{atres.plastificacao}}€</p>
+                                                                {% endifnotequal %}
+                                                            {% endifequal %}
+                                                        {% endfor %}
+
+                                                        {% for adois in A2 %}
+                                                            {% ifequal adois.reprografia_id rep.id  %}
+                                                                {% ifnotequal adois.frente_preto_branco_preco -1 %}
+                                                                    <p class="rep-info2"><b>A2 Só Frente:</b> Preto e Branco: {{adois.frente_preto_branco_preco}}€
                                                                     {% ifnotequal adois.frente_cor_preco -1 %}
                                                                         /pagina COR: {{adois.frente_cor_preco}}€/pagina</p>
-                                                                     {% else %}
-                                                                        </p>
                                                                     {% endifnotequal %}
-                                                            {% endifnotequal %}
-                                                            {% ifnotequal adois.frente_verso_preto_branco_preco -1 %}
-                                                                <p class="rep-info2"><b>A2 Frente & Verso:</b> Preto e Branco: {{adois.frente_verso_preto_branco_preco}}€
+                                                                {% endifnotequal %}
+
+                                                                {% ifnotequal adois.frente_verso_preto_branco_preco -1 %}
+                                                                    <p class="rep-info2"><b>A2 Frente & Verso:</b> Preto e Branco: {{adois.frente_verso_preto_branco_preco}}€
                                                                     {% ifnotequal adois.frente_verso_cor_preco -1 %}
                                                                         /pagina COR: {{adois.frente_verso_cor_preco}}€/pagina</p>
-                                                                     {% else %}
-                                                                        </p>
                                                                     {% endifnotequal %}
-                                                            {% endifnotequal %}
-                                                            {% ifnotequal adois.encadernacao -1 %}
-                                                                <p class="rep-info2"><b>A2 Encadernação:</b> {{adois.encadernacao}}€</p>
-                                                            {% endifnotequal %}
-                                                            {% ifnotequal adois.digitalizacao -1 %}
-                                                                <p class="rep-info2"><b>A2 Digitalização:</b> {{adois.digitalizacao}}€</p>
-                                                            {% endifnotequal %}
-                                                            {% ifnotequal adois.plastificacao -1 %}
-                                                                <p class="rep-info2"><b>A2 Plastificação:</b> {{adois.plastificacao}}€</p>
-                                                            {% endifnotequal %}
-                                                         {% endifequal %}
-                                                     {% endfor %}
-                                                     {% for aum in A1 %}
-                                                         {% ifequal aum.reprografia_id rep.id  %}
-                                                            {% ifnotequal aum.frente_preto_branco_preco -1 %}
-                                                                <p class="rep-info2"><b>A1 Só Frente:</b> Preto e Branco: {{aum.frente_preto_branco_preco}}€
+                                                                {% endifnotequal %}
+
+                                                                {% ifnotequal adois.encadernacao -1 %}
+                                                                    <p class="rep-info2"><b>A2 Encadernação:</b> {{adois.encadernacao}}€</p>
+                                                                {% endifnotequal %}
+
+                                                                {% ifnotequal adois.digitalizacao -1 %}
+                                                                    <p class="rep-info2"><b>A2 Digitalização:</b> {{adois.digitalizacao}}€</p>
+                                                                {% endifnotequal %}
+
+                                                                {% ifnotequal adois.plastificacao -1 %}
+                                                                    <p class="rep-info2"><b>A2 Plastificação:</b> {{adois.plastificacao}}€</p>
+                                                                {% endifnotequal %}
+                                                            {% endifequal %}
+                                                        {% endfor %}
+
+                                                        {% for aum in A1 %}
+                                                            {% ifequal aum.reprografia_id rep.id  %}
+                                                                {% ifnotequal aum.frente_preto_branco_preco -1 %}
+                                                                    <p class="rep-info2"><b>A1 Só Frente:</b> Preto e Branco: {{aum.frente_preto_branco_preco}}€
                                                                     {% ifnotequal aum.frente_cor_preco -1 %}
                                                                         /pagina COR: {{aum.frente_cor_preco}}€/pagina</p>
-                                                                     {% else %}
-                                                                        </p>
                                                                     {% endifnotequal %}
-                                                            {% endifnotequal %}
-                                                            {% ifnotequal aum.frente_verso_preto_branco_preco -1 %}
-                                                                <p class="rep-info2"><b>A1 Frente & Verso:</b> Preto e Branco: {{aum.frente_verso_preto_branco_preco}}€
+                                                                {% endifnotequal %}
+
+                                                                {% ifnotequal aum.frente_verso_preto_branco_preco -1 %}
+                                                                    <p class="rep-info2"><b>A1 Frente & Verso:</b> Preto e Branco: {{aum.frente_verso_preto_branco_preco}}€
                                                                     {% ifnotequal aum.frente_verso_cor_preco -1 %}
                                                                         /pagina COR: {{aum.frente_verso_cor_preco}}€/pagina</p>
-                                                                     {% else %}
-                                                                        </p>
                                                                     {% endifnotequal %}
-                                                            {% endifnotequal %}
-                                                            {% ifnotequal aum.encadernacao -1 %}
-                                                                <p class="rep-info2"><b>A1 Encadernação:</b> {{aum.encadernacao}}€</p>
-                                                            {% endifnotequal %}
-                                                            {% ifnotequal aum.digitalizacao -1 %}
-                                                                <p class="rep-info2"><b>A1 Digitalização:</b> {{aum.digitalizacao}}€</p>
-                                                            {% endifnotequal %}
-                                                            {% ifnotequal aum.plastificacao -1 %}
-                                                                <p class="rep-info2"><b>A1 Plastificação:</b> {{aum.plastificacao}}€</p>
-                                                            {% endifnotequal %}
-                                                         {% endifequal %}
-                                                     {% endfor %}
-                                                     {% for azero in A0 %}
-                                                         {% ifequal azero.reprografia_id rep.id  %}
-                                                            {% ifnotequal azero.frente_preto_branco_preco -1 %}
-                                                                <p class="rep-info2"><b>A0 Só Frente:</b> Preto e Branco: {{azero.frente_preto_branco_preco}}€
-                                                                    {% ifnotequal azero.frente_cor_preco -1 %}
-                                                                        /pagina COR: {{azero.frente_cor_preco}}€/pagina</p>
-                                                                     {% else %}
-                                                                        </p>
+                                                                {% endifnotequal %}
+
+                                                                {% ifnotequal aum.encadernacao -1 %}
+                                                                    <p class="rep-info2"><b>A1 Encadernação:</b> {{aum.encadernacao}}€</p>
+                                                                {% endifnotequal %}
+
+                                                                {% ifnotequal aum.digitalizacao -1 %}
+                                                                    <p class="rep-info2"><b>A1 Digitalização:</b> {{aum.digitalizacao}}€</p>
+                                                                {% endifnotequal %}
+
+                                                                {% ifnotequal aum.plastificacao -1 %}
+                                                                    <p class="rep-info2"><b>A1 Plastificação:</b> {{aum.plastificacao}}€</p>
+                                                                {% endifnotequal %}
+                                                            {% endifequal %}
+                                                        {% endfor %}
+
+                                                        {% for azero in A0 %}
+                                                            {% ifequal azero.reprografia_id rep.id  %}
+                                                                {% ifnotequal azero.frente_preto_branco_preco -1 %}
+                                                                    <p class="rep-info2"><b>A0 Só Frente:</b> Preto e Branco: {{azero.frente_preto_branco_preco}}€
+                                                                        {% ifnotequal azero.frente_cor_preco -1 %}
+                                                                            /pagina COR: {{azero.frente_cor_preco}}€/pagina</p>
+                                                                        {% endifnotequal %}
+
+                                                                        {% ifnotequal azero.frente_verso_preto_branco_preco -1 %}
+                                                                            <p class="rep-info2"><b>A0 Frente & Verso:</b> Preto e Branco: {{azero.frente_verso_preto_branco_preco}}€
+                                                                        {% ifnotequal azero.frente_verso_cor_preco -1 %}
+                                                                            /pagina COR: {{azero.frente_verso_cor_preco}}€/pagina</p>
+                                                                        {% endifnotequal %}
                                                                     {% endifnotequal %}
-                                                            {% ifnotequal azero.frente_verso_preto_branco_preco -1 %}
-                                                                <p class="rep-info2"><b>A0 Frente & Verso:</b> Preto e Branco: {{azero.frente_verso_preto_branco_preco}}€
-                                                                    {% ifnotequal azero.frente_verso_cor_preco -1 %}
-                                                                        /pagina COR: {{azero.frente_verso_cor_preco}}€/pagina</p>
-                                                                     {% else %}
-                                                                        </p>
+
+                                                                    {% ifnotequal azero.encadernacao -1 %}
+                                                                        <p class="rep-info2"><b>A0 Encadernação:</b> {{azero.encadernacao}}€</p>
                                                                     {% endifnotequal %}
-                                                            {% endifnotequal %}
-                                                            {% ifnotequal azero.encadernacao -1 %}
-                                                                <p class="rep-info2"><b>A0 Encadernação:</b> {{azero.encadernacao}}€</p>
-                                                            {% endifnotequal %}
-                                                            {% ifnotequal azero.digitalizacao -1 %}
-                                                                <p class="rep-info2"><b>A0 Digitalização:</b> {{azero.digitalizacao}}€</p>
-                                                            {% endifnotequal %}
-                                                            {% ifnotequal azero.plastificacao -1 %}
-                                                                <p class="rep-info2"><b>A0 Plastificação:</b> {{azero.plastificacao}}€</p>
-                                                            {% endifnotequal %}
-                                                            {% endifnotequal %}
-                                                         {% endifequal %}
-                                                     {% endfor %}
-                                                    {% ifnotequal rep.webiste "-1" %}
-                                                        <a href= "http://{{ rep.webiste }}" target="_blank" class ="rep-info2">Website: {{ rep.webiste }}</a>
-                                                    {% endifnotequal %}
-                                                    {% ifnotequal rep.contacto -1 %}
-                                                        <p class="rep-info2">Contacto: {{rep.contacto}}</p>
-                                                    {% endifnotequal %}
-                                                    {% ifnotequal rep.email "-1" %}
-                                                        <p class="rep-info2">Email: {{rep.email}}</p>
-                                                    {% endifnotequal %}
-{#                                                        Depois ver isto do rating#}
-{#                                                        <p class="rep-info2">Rating: {{rep.rating_medio}}</p>#}
+
+                                                                    {% ifnotequal azero.digitalizacao -1 %}
+                                                                        <p class="rep-info2"><b>A0 Digitalização:</b> {{azero.digitalizacao}}€</p>
+                                                                    {% endifnotequal %}
+
+                                                                    {% ifnotequal azero.plastificacao -1 %}
+                                                                        <p class="rep-info2"><b>A0 Plastificação:</b> {{azero.plastificacao}}€</p>
+                                                                    {% endifnotequal %}
+                                                                {% endifnotequal %}
+                                                            {% endifequal %}
+                                                        {% endfor %}
+
+                                                        {% ifnotequal rep.webiste "-1" %}
+                                                            <a href= "http://{{ rep.webiste }}" target="_blank" class ="rep-info2">Website: {{ rep.webiste }}</a>
+                                                        {% endifnotequal %}
+
+                                                        {% ifnotequal rep.contacto -1 %}
+                                                            <p class="rep-info2">Contacto: {{rep.contacto}}</p>
+                                                        {% endifnotequal %}
+
+                                                        {% ifnotequal rep.email "-1" %}
+                                                            <p class="rep-info2">Email: {{rep.email}}</p>
+                                                        {% endifnotequal %}
+                                                    </div>
                                                 </div>
-                                              </div>
-                                        </div>
-                                    {% endfor %}
-                                </ul>
+                                             </div>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-12 col-md-1"><p style="color: white;">Espaco branco</p></div>
+                            <div class="col-12 col-sm-12 col-md-5">
+                                <div id="map"></div>
+                                <script>
+                                    var map;
+                                    var data_from_django = {{ lista|safe }};
+
+                                    function initMap(){
+                                        console.log(data_from_django);
+
+                                        map = new google.maps.Map(document.getElementById('map'), {
+                                            center: new google.maps.LatLng(data_from_django[0][1], data_from_django[0][2]),
+                                            zoom: 13,
+                                            mapTypeId: google.maps.MapTypeId.ROADMAP,
+                                        });
+
+                                    var infoWindow = new google.maps.InfoWindow();
+
+                                    var marker, i;
+
+                                    for (i = 1; i < data_from_django.length; i++){
+                                        console.log("Ponto " + i + ": (" + data_from_django[i][1] + ", " + data_from_django[i][2] + ")");
+                                        marker = new google.maps.Marker({
+                                            position: new google.maps.LatLng(data_from_django[i][1], data_from_django[i][2]),
+                                            map: map
+                                        });
+
+                                        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                            return function() {
+                                                infoWindow.setContent(data_from_django[i][0]);
+                                                infoWindow.open(map, marker);
+                                            }
+                                        })(marker, i));
+                                    }}
+                                </script>
+                                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrc4kHDhi7GOYb5IBKUn1mrj6MsX85eNg&callback=initMap" async defer></script>
                             </div>
                         </div>
-
-                      <div class="col-12 col-sm-12 col-md-1"><p style="color: white;">Espaco branco</p></div>
-                      <div class="col-12 col-sm-12 col-md-5">
-                          <div id="map"></div>
-                          <script>
-                              var map;
-                              var data_from_django = {{ lista|safe }};
-
-                              function initMap(){
-                                  console.log(data_from_django);
-
-                                  map = new google.maps.Map(document.getElementById('map'), {
-                                      center: new google.maps.LatLng(data_from_django[0][1], data_from_django[0][2]),
-                                      zoom: 13,
-                                      mapTypeId: google.maps.MapTypeId.ROADMAP,
-                                  });
-
-                                  var infoWindow = new google.maps.InfoWindow();
-
-                                  var marker, i;
-
-                                  for (i = 1; i < data_from_django.length; i++){
-                                      console.log("Ponto " + i + ": (" + data_from_django[i][1] + ", " + data_from_django[i][2] + ")");
-                                      marker = new google.maps.Marker({
-                                          position: new google.maps.LatLng(data_from_django[i][1], data_from_django[i][2]),
-                                          map: map
-                                      });
-
-                                      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                                          return function() {
-                                              infoWindow.setContent(data_from_django[i][0]);
-                                              infoWindow.open(map, marker);
-                                          }
-                                      })(marker, i));
-                                  }
-                              }
-                          </script>
-                          <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrc4kHDhi7GOYb5IBKUn1mrj6MsX85eNg&callback=initMap" async defer></script>
-
-                      </div>
-                      </div>
                     </div>
 
-          </div>
+            </div>
+            <script>
+                $(document).ready(function(){
+                    $("#myInput").on("keyup", function() {
+                        var filter, i=0;
+                        filter = $(this).val().toLowerCase();
+                        console.log(filter);
+                        var list = document.getElementById("myList");
 
-        <script>
-        $(document).ready(function(){
-            $("#myInput").on("keyup", function() {
-              var filter, i=0;
-              filter = $(this).val().toLowerCase();
-              console.log(filter);
-              var list = document.getElementById("myList");
+                        $.each($('#myList #infor'), function() {
+                            var element = this;
+                            var nome = element.getElementsByTagName("div")[0];
+                            nome = nome.getElementsByTagName("span")[0];
+                            var localizacao = element.getElementsByTagName("div")[10];
+                            localizacao = localizacao.getElementsByTagName("a")[0];
+                            nome = nome.textContent || nome.innerText;
+                            localizacao = localizacao.textContent || localizacao.innerText;
+                            var div = list.getElementsByClassName("list-group-item")[i];
 
-              $.each($('#myList #infor'), function() {
-                  var element = this;
-                  var nome = element.getElementsByTagName("div")[0];
-                  nome = nome.getElementsByTagName("span")[0];
-                  var localizacao = element.getElementsByTagName("div")[10];
-                  localizacao = localizacao.getElementsByTagName("a")[0];
-                  nome = nome.textContent || nome.innerText;
-                  localizacao = localizacao.textContent || localizacao.innerText;
-                  var div = list.getElementsByClassName("list-group-item")[i];
-                  if (nome.toLowerCase().indexOf(filter) > -1 || localizacao.toLowerCase().indexOf(filter)> -1) {
-                      div.style.display = "";
-                  }
-                  else{
-                      div.style.display = "none";
-                  }
-                  i++;
-              });
-            });
-        });
+                            if (nome.toLowerCase().indexOf(filter) > -1 || localizacao.toLowerCase().indexOf(filter)> -1) {
+                                div.style.display = "";
+                            }
+                            else{
+                                div.style.display = "none";
+                            }
+                            i++;
+                        });
+                    });
+                });
 
-        $("#orderList").click( function() {
-            $("#myList .list-group-item").detach().sort(function(a, b) {
-               return ($(b).find("#nomeReprografia").text().toUpperCase()) < ($(a).find("#nomeReprografia").text().toUpperCase()) ? 1 : -1;
-            }).appendTo("#myList");
-        });
+                $("#orderList").click( function() {
+                    $("#myList .list-group-item").detach().sort(function(a, b) {
+                        return ($(b).find("#nomeReprografia").text().toUpperCase()) < ($(a).find("#nomeReprografia").text().toUpperCase()) ? 1 : -1;
+                    }).appendTo("#myList");
+                });
 
-        $("#orderLocal").click( function() {
-            $("#myList .list-group-item").detach().sort(function(a, b) {
-               return ($(b).find("#localizacaoReprografia").text().toUpperCase()) < ($(a).find("#localizacaoReprografia").text().toUpperCase()) ? 1 : -1;
-            }).appendTo("#myList");
-        });
+                $("#orderLocal").click( function() {
+                    $("#myList .list-group-item").detach().sort(function(a, b) {
+                        return ($(b).find("#localizacaoReprografia").text().toUpperCase()) < ($(a).find("#localizacaoReprografia").text().toUpperCase()) ? 1 : -1;
+                    }).appendTo("#myList");
+                });
 
-         $("#orderPrice").click( function() {
-            $("#myList .list-group-item").detach().sort(function(a, b) {
-               return ($(b).find("#precoA4").text().toUpperCase()) < ($(a).find("#precoA4").text().toUpperCase()) ? 1 : -1;
-            }).appendTo("#myList");
-        });
+                $("#orderPrice").click( function() {
+                    $("#myList .list-group-item").detach().sort(function(a, b) {
+                        return ($(b).find("#precoA4").text().toUpperCase()) < ($(a).find("#precoA4").text().toUpperCase()) ? 1 : -1;
+                    }).appendTo("#myList");
+                });
 
-        $("#scroll-img").click(function() {
-            $('html,body').animate({
-            scrollTop: $("#mapa").offset().top},
-            'slow');
-         });
-        </script>
-        <div id = "simulador">
-            {% block simulador %}
-            {% endblock %}
-        </div>
-        <div class="row mt-5"></div>
-        <div class="row mt-3"></div>
-        <footer class="mt-4" style="background-color: #F4F1F0;">
-          <div class="container-fluid py-1">
-            <div class="row">
-                <div class="col">
+                $("#scroll-img").click(function() {
+                    $('html,body').animate({
+                        scrollTop: $("#mapa").offset().top}, 'slow');
+                });
+            </script>
+            <div id = "simulador">
+                {% block simulador %}
+                {% endblock %}
+            </div>
+            <div class="row mt-5"></div>
+            <div class="row mt-3"></div>
+            <footer class="mt-4" style="background-color: #F4F1F0;">
+                <div class="container-fluid py-1">
                     <div class="row">
-                        <div class="col-md-8">
-                            <img class="logo-footer" src="/static/imagens/logo2.png">
-                        </div>
-                        <div class="col-md-2">
-                            <a class="text-footer" href="http://facebook.com/CoimbraInk/">facebook.com/CoimbraInk/</a>
-                        </div>
-                        <div class="col-md-2">
-                            <span class="text-footer">coimbraink@gmail.com</span>
+                        <div class="col">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <img class="logo-footer" src="/static/imagens/logo2.png">
+                                </div>
+                                <div class="col-md-2">
+                                    <a class="text-footer" href="http://facebook.com/CoimbraInk/">facebook.com/CoimbraInk/</a>
+                                </div>
+                                <div class="col-md-2">
+                                    <span class="text-footer">coimbraink@gmail.com</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-          </div>
-      </footer>
-    </div>
-
+            </footer>
+        </div>
     </body>
 </html>

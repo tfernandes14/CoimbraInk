@@ -1,15 +1,11 @@
-from django.shortcuts import render
 from django.core.exceptions import ObjectDoesNotExist
-from .models import *
-import requests
-from django.http import HttpResponseRedirect
-from django.core.files.storage import FileSystemStorage
 from django.http import JsonResponse
-import json
+from django.shortcuts import render
+
+from .models import *
+
 
 def home(request):
-    
-
     reprografias = Reprografia.objects.all()
     todas = get_lat_long()
     tese = Tese.objects.all()
@@ -19,13 +15,13 @@ def home(request):
     a2 = Adois.objects.all()
     a1 = Aum.objects.all()
     a0 = Azero.objects.all()
-    
+
     return render(request, 'simulador.html', {'reprografias': reprografias,
                                               'A5': a5, 'A4': a4, 'A3': a3,
-                                              'A2': a2,'A1': a1, 'A0': a0, 'tese' : tese, 'lista': todas})
+                                              'A2': a2, 'A1': a1, 'A0': a0, 'tese': tese, 'lista': todas})
 
 
-def simulador(request,pk):
+def simulador(request, pk):
     reprografia = Reprografia.objects.get(pk=pk)
     a5_res = Acinco.objects.get(reprografia=reprografia)
     a4_res = Aquatro.objects.get(reprografia=reprografia)
@@ -33,7 +29,7 @@ def simulador(request,pk):
     a2_res = Adois.objects.get(reprografia=reprografia)
     a1_res = Aum.objects.get(reprografia=reprografia)
     a0_res = Azero.objects.get(reprografia=reprografia)
-    
+
     resultado_5 = a5_res.serialize()
     resultado_4 = a4_res.serialize()
     resultado_3 = a3_res.serialize()
@@ -42,33 +38,29 @@ def simulador(request,pk):
     resultado_0 = a0_res.serialize()
 
     resultado = [resultado_5, resultado_4, resultado_3, resultado_2, resultado_1, resultado_0]
-    
+
     return JsonResponse(resultado, safe=False)
 
 
-def busca_pagina(request,pk,choice):
+def busca_pagina(request, pk, choice):
     reprografia = Reprografia.objects.get(pk=pk)
 
-    
-    if(choice=="Azero"):
+    objeto = None
+
+    if choice == "Azero":
         objeto = Azero.objects.get(reprografia=reprografia).serialize()
-    elif(choice=="Aum"):
+    elif choice == "Aum":
         objeto = Aum.objects.get(reprografia=reprografia).serialize()
-    elif(choice=="Adois"):
+    elif choice == "Adois":
         objeto = Adois.objects.get(reprografia=reprografia).serialize()
-    elif(choice=="Atres"):
+    elif choice == "Atres":
         objeto = Atres.objects.get(reprografia=reprografia).serialize()
-    elif(choice=="Aquatro"):
+    elif choice == "Aquatro":
         objeto = Aquatro.objects.get(reprografia=reprografia).serialize()
-    elif(choice=="Acinco"):
+    elif choice == "Acinco":
         objeto = Acinco.objects.get(reprografia=reprografia).serialize()
-    
+
     return JsonResponse(objeto, safe=False)
-
-
-    
-                    
-
 
 
 def get_lat_long():
@@ -86,7 +78,6 @@ def get_lat_long():
     return res
 
 
-
 def contas(frente_verso, cores, frente, preto, encadernar, digitalizacao, plastificada, numero_paginas, objeto):
     # O objeto corresponde ao objeto certo que passamos, pode ser um do A5 ou um do A4
 
@@ -96,7 +87,7 @@ def contas(frente_verso, cores, frente, preto, encadernar, digitalizacao, plasti
         conta += objeto.frente_verso_cor_preco * numero_paginas
     elif frente_verso and preto:
         conta += objeto.frente_verso_preto_branco_preco * numero_paginas
-    elif frente and cores :
+    elif frente and cores:
         conta += objeto.frente_cor_preco * numero_paginas
     elif frente and preto:
         conta += objeto.frente_preto_branco_preco * numero_paginas
