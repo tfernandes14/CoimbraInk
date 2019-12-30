@@ -262,6 +262,48 @@ html {
   cursor: pointer;
 }
 
+ .listaRep {
+     height: 460px;
+ }
+
+ .simular_caixa{
+     height: 500px;
+ }
+
+ @media only screen and (max-width: 1200px) {
+    .listaRep {
+        height: 555px;
+    }
+    .simular_caixa{
+        height: 590px;
+    }
+}
+
+ @media only screen and (max-width: 992px) {
+    .listaRep {
+        height: 590px;
+    }
+    .simular_caixa{
+        height: 635px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .listaRep {
+        height: 230px;
+    }
+
+    .simular_caixa{
+        height: 575px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .simular_caixa{
+        height: 600px;
+    }
+}
+
 /*footer*/
 .text-footer {
     font-family: Red Hat Text;
