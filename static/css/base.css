@@ -286,6 +286,10 @@ html {
     .simular_caixa{
         height: 635px;
     }
+
+    .totalResultado{
+        margin-left: 15px;
+    }
 }
 
 @media only screen and (max-width: 767px) {
@@ -296,11 +300,18 @@ html {
     .simular_caixa{
         height: 575px;
     }
+
+    .totalResultado{
+        margin-left: 0px;
+    }
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 500px) {
     .simular_caixa{
         height: 600px;
+    }
+    .totalResultado{
+        margin-left: 15px;
     }
 }
 
