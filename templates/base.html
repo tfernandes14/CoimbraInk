@@ -68,7 +68,9 @@
             </div>
             <!--/.Navbar-->
             <div class="row mb-3" style="margin-left:5px; width: 100vw; display:flex; justify-content: center;">
-                <img src="/static/imagens/setas.png" id="scroll-img" style="width: 70px; transform: rotate(180deg); cursor:pointer;">
+                <div class="img-setas" style="width: 70px; height: auto;">
+                    <img src="/static/imagens/setas.png" id="scroll-img" style="width:100%; transform: rotate(180deg); cursor:pointer;">
+                </div>
             </div>
         </div>
 
@@ -350,7 +352,7 @@
                                                         {% endifnotequal %}
 
                                                         {% ifnotequal rep.contacto -1 %}
-                                                            <p class="rep-info2">Contacto: {{rep.contacto}}</p>
+                                                            <p class="rep-info2" style="margin-bottom: 0px;">Contacto: {{rep.contacto}}</p>
                                                         {% endifnotequal %}
 
                                                         {% ifnotequal rep.email "-1" %}
@@ -484,7 +486,9 @@
                             </div>
                             <div class="contact col-sm-6 col-md-3" style=" display: flex; flex-direction: column; justify-content: space-around;">
                                 <div class="row">
-                                    <img class="logo-footer"  style="background-color: #F4F1F0;" src="/static/imagens/logo2.png">
+                                    <div class="logo-footer" style="background-color: #F4F1F0;" >
+                                        <img class="img-logo-footer" src="/static/imagens/logo2.png">
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <span class="text-footer1">coimbraink@gmail.com</span>
